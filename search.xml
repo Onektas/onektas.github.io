@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>如何优雅的在Linux搭建Minecraft服务器（范例）</title>
+      <link href="posts/20fb2456/"/>
+      <url>posts/20fb2456/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>历时8天，网站备案结束。阿里云服务器闲置，正好拿来做一些Linux上的实验并完全使用自己的想法再搭建一台我的世界服务器</p><br><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>必备软件: Xshell，Xftp，Xmanager<br>必备环境: CentOS8，Java，Git</p><br><h2 id="阿里云控制台"><a href="#阿里云控制台" class="headerlink" title="阿里云控制台"></a>阿里云控制台</h2><br><p><strong>重置系统为CentOS8</strong></p><img src="../../images/0/1.png" style="zoom:80%" alt=""/><p><br><br></p><p><strong>设置远程连接密码</strong></p><img src="../../images/0/2.png" style="zoom:80%" alt=""/><p><br><br></p><p><strong>提前放行25565端口</strong></p><img src="../../images/0/3.png" style="zoom:80%" alt=""/><p><br><br></p><h2 id="优雅搭建服务器"><a href="#优雅搭建服务器" class="headerlink" title="优雅搭建服务器"></a>优雅搭建服务器</h2><br><p><strong>使用Xshell连接Linux并安装下述软件</strong></p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum update -y    # 新系统更新一下</span><br><span class="line">yum install java -y    # 安装Java</span><br><span class="line">yum install screen -y    # 安装screen</span><br><span class="line">yum install git -y    # 安装Git</span><br><span class="line">yum install git-gui -y    # 安装Git GUI</span><br><span class="line">yum install xorg-x11-xauth -y    # 安装x11</span><br></pre></td></tr></table></figure><br><p><strong>安装后重启Linux，推荐使用阿里云控制台重启。重启时检查”Xshell”——“文件”——“属性”里的X11设置</strong></p><img src="../../images/0/4.png" style="zoom:80%" alt=""/><br><img src="../../images/0/5.png" style="zoom:80%" alt=""/><p><br><br></p><p><strong>我选择的是官方1.12.2server+forge，仅需要下载Forge并使用Xftp传至Linux</strong></p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar forge-1.12.2-14.23.5.2854-installer.jar --installServer        # 安装Forge</span><br></pre></td></tr></table></figure><img src="../../images/0/6.png" style="zoom:80%" alt=""/><br><blockquote><p>Forge安装成功率较低，我人品好的时候可以1秒钟内安装失败，人品差装了一下午才提示失败。。正常需耗时数分钟</p></blockquote><br><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">git config --global user.name &quot;Your Name&quot;        # 设置Git的账号信息</span><br><span class="line"></span><br><span class="line">git init        # 创建Git仓库</span><br><span class="line">git status        # 检查文件变动</span><br><span class="line">git add .        # 添加所有文件至暂存区</span><br><span class="line">git status        # 再次检查文件变动</span><br><span class="line">git commit -m &quot;&#123;name&#125;&quot;        # 提交</span><br></pre></td></tr></table></figure><br><p><em><strong>身体原因，老传统，先发后完工</strong></em></p><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Minecraft </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Win10系统安装指南</title>
+      <link href="posts/3e8dd10e/"/>
+      <url>posts/3e8dd10e/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note simple"><p>小学一年级是我第一次正式接触电脑，那时用的应该是Windows2000；小学三年级家里买了电脑，用的是WindowsXP，同年也学会了重装系统，这项实用的技术至今从没让我失望过。装机10周年，不如写点笔记记录下一些宝贵经验</p></div><br><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><div class="note simple"><p>推荐准备一个8G以上的U盘，使用U盘安装Windows，当然也可以直接安装，完美主义者表示因为U盘安装可以分区和格式化硬盘，确实比直接重装更加干净</p></div><br><h2 id="选择系统"><a href="#选择系统" class="headerlink" title="选择系统"></a>选择系统</h2><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;关于专业版、家庭版这类的选择，如果可选，推荐安装专业版，会多很多平常用不到但万一就是会用到的功能。<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;冷知识：家庭中文版和中文家庭版是两个完全不同的版本。前者是多语言版选择中文，后者是单语言版，万一出现这两个选择，最好选择前者</p><div class="note simple"><p>装系统第一步————理清自己的需求，选择合适的系统版本。</p><ol><li>最新版<br><a href="https://www.microsoft.com/zh-cn/software-download/windows10/">官网</a>下载工具，推荐U盘方式安装</li><li>其他版<br><a href="https://msdn.itellyou.cn/">MSDN</a>下载所需镜像，使用<a href="https://cn.ultraiso.net/">UltralISO软碟通</a>将镜像刻录至U盘</li><li>长期服务版<br><a href="https://msdn.itellyou.cn/">MSDN</a>，目前最新的是基于1809的LTSC，下载完后打开双击复制所有内容至U盘，无需刻录</li></ol><p>以上三种方式均可直接安装，推荐使用U盘。U盘文件系统使用FAT32，分配单元大小默认。U盘内容做好备份，一旦刻入系统，原先文件将会丢失</p></div><br><h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;本篇文章虽打着教程的标签，但实为笔记分类，主指南副教程。</p><div class="note simple"><ol><li><p>安装过程需注意的是分区。如果希望分区显示整数，请使用“分区整数计算器”，随便搜一个即可</p></li><li><p>引导部分按照自己习惯设置</p></li><li><p>个性化部分可以把广告相关选项全部关闭</p></li></ol></div><br><h2 id="系统设置"><a href="#系统设置" class="headerlink" title="系统设置"></a>系统设置</h2><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;进入系统后可以去各官网下载驱动程序，也可以开机后保持联网，Win10会自动下载匹配的驱动，游戏玩家最多手动按照一下显卡驱动就好了</p><div class="note simple"><p>推荐设置</p><ol><li>关闭休眠模式 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 保护硬盘</li><li>关闭快速启动 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 保护硬盘</li><li>关闭系统恢复 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 保护系统</li><li>关闭蓝牙、摄像头 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 用的时候再开</li><li>关闭各种同步和设备历史记录 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 需要就保持开启</li><li>关闭提高指针精准度 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 游戏玩家应该晓得</li></ol><br><ol start="7"><li>Win+V打开剪切板 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 方便实用</li><li>设置Pin码登录 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 方便实用</li><li>设置英语输入法 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 方便实用</li></ol><br><ol start="10"><li>DX修复工具增强版 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 可以修复很多软件游戏启动问题</li><li>BandZip &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 用过的最好的压缩软件</li><li>NET3.5 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; # 极少数情况下会用到</li></ol></div><br><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;我每次在学校机房都会进行的操作</p><div class="note simple"><ol><li>关闭提高指针精准度</li><li>设置中英文输入法，关闭第三方输入法</li><li>整理桌面图标，将浏览器和要用的软件添加到快速启动栏</li><li>Win+V打开剪切板</li><li>若第一次使用这台电脑，调整显示器亮度色彩</li></ol></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo博客搭建笔记</title>
+      <link href="posts/23799945/"/>
+      <url>posts/23799945/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note default simple"><p>自建博客第一步，选择方案，我选择的是Hexo(Butterfly)+GitHub，所以这篇文章更多的基于Hexo+Butterfly的笔记(极少包含教程)</p></div><br><h2 id="搭建优化"><a href="#搭建优化" class="headerlink" title="搭建优化"></a>搭建优化</h2><h3 id="Git版本控制"><a href="#Git版本控制" class="headerlink" title="Git版本控制"></a>Git版本控制</h3><div class="note simple"><p>基础的使用版本控制阅读Git<a href="https://git-scm.com/book/zh/v2">文档</a>前2章足矣。<a href="https://onektas.top/posts/902450b9/">版本控制妙用</a></p></div><br><h3 id="GitHub-Action"><a href="#GitHub-Action" class="headerlink" title="GitHub Action"></a>GitHub Action</h3><div class="note simple"><p>尽早学会使用CI\CD可以大大提高工作效率。GitHub Action可以说是一个万能的存在</p></div><br><h3 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h3><div class="note simple"><p>我选择的是自建图床，推送到GitHub然后引用CDN。博客的图片内容变多后会很占据空间，我将关键图片(背景、头像、图标)放在网站里，其余图片一律在线引用图床</p></div><br><h2 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h2><p>如果希望自己博客能被搜索引擎抓取最好做一些。Hexo+Butterfly已经非常优秀了，只需要进行几个基本的操作即可</p><h3 id="SiteMap"><a href="#SiteMap" class="headerlink" title="SiteMap"></a>SiteMap</h3><div class="note simple"><p>使用<code>generator-sitemap</code>和<code>generator-baidu-sitemap</code>(需配置)自动生成站点地图</p></div><br><h3 id="网站提交"><a href="#网站提交" class="headerlink" title="网站提交"></a>网站提交</h3><div class="note simple"><p>有了站点地图后可以注册各个搜索引擎的站长平台提交网址和网站地图。百度可用<code>baidu-url-submit</code>来自动API提交</p></div><br><h3 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h3><div class="note simple"><p>与sitemap一样，可以没有但最好写一个。优先使用<code>Disallow</code>，没有特殊需求不要屏蔽任何内容，更不要自作聪明屏蔽<code>css、js、img</code>，搜索引擎确实是根据链接来抓取的，抓取的同时依旧需要css、js、img来判断内容，如果屏蔽这些东西极可能被搜索引擎判定成内容不合规</p></div><br><h3 id="备案"><a href="#备案" class="headerlink" title="备案"></a>备案</h3><div class="note simple"><p>21年开始国内搜索引擎几乎不会收录没备案的新站，最好趁25岁前可以享受学生优惠在阿里云、腾讯云等云服务器网站备案</p></div><br><h3 id="链接优化"><a href="#链接优化" class="headerlink" title="链接优化"></a>链接优化</h3><div class="note simple"><p>一个优秀网站最好配备<code>404页</code>、<code>友链</code>，推荐使用<code>abbrlink</code>(需配置)来优化链接格式</p></div><br><h2 id="写作优化"><a href="#写作优化" class="headerlink" title="写作优化"></a>写作优化</h2><h3 id="VSCode"><a href="#VSCode" class="headerlink" title="VSCode"></a>VSCode</h3><div class="note simple"><p>VSCode真的万能，兼容性好功能强大，正常人可以搭配git使用，优秀人甚至可以在里面追番</p></div><br><h3 id="HexoEditor"><a href="#HexoEditor" class="headerlink" title="HexoEditor"></a>HexoEditor</h3><div class="note simple"><p>每次写作都是用VSCode优化格式，HexoEditor编辑内容，专门写MD的编辑器确实比VSCode有更好的MD编辑体验</p></div><br><h3 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h3><div class="note simple"><p>对MarkDown还不太熟悉的人很方便，预设很多格式，用鼠标点点就能很方便的创建表格、代码块</p></div><br><h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><div class="note simple"><p>位于<code>博客根目录/scaffolds</code>，提前写好一个模板很重要</p></div><br><h2 id="美化-待施工"><a href="#美化-待施工" class="headerlink" title="美化(待施工)"></a>美化(待施工)</h2><h3 id="看板娘"><a href="#看板娘" class="headerlink" title="看板娘"></a>看板娘</h3><br><h3 id="一图流"><a href="#一图流" class="headerlink" title="一图流"></a>一图流</h3><br><h3 id="友链改版"><a href="#友链改版" class="headerlink" title="友链改版"></a>友链改版</h3><br><h3 id="首页双栏"><a href="#首页双栏" class="headerlink" title="首页双栏"></a>首页双栏</h3><br><h3 id="首页文章置顶轮播"><a href="#首页文章置顶轮播" class="headerlink" title="首页文章置顶轮播"></a>首页文章置顶轮播</h3><br><h2 id="推荐配置"><a href="#推荐配置" class="headerlink" title="推荐配置"></a>推荐配置</h2><p>配置Hexo和主题的时候根据喜好即可，下述功能推荐启用</p><h3 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h3><div class="note simple"><p>最基本的交流功能，也可以在网站内公示邮箱、QQ，至少保留一种联系方式</p></div><br><h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><div class="note simple"><p>文章多起来后就很有用了</p></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Win10如何删除正在运行的程序</title>
+      <link href="posts/7745d9b4/"/>
+      <url>posts/7745d9b4/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note default simple"><p>“操作无法完成，因为其中的文件夹或文件已在另一程序中打开<br>请关闭该文件夹或文件，然后重试”</p><p>每次看见这个我就烦，手头既然没有360也没有其他杀毒软件，有时候重启了还是删不掉。</p><p>难道要装杀毒软件吗？不！咱的骄傲从来不允许我们装杀毒软件</p><img src="https://ih.onektas.top/210328/0.png" style="zoom:10%" alt=""/></div><p><br><br></p><h2 id="开始整活"><a href="#开始整活" class="headerlink" title="开始整活"></a>开始整活</h2><p>提示：删除正在运行软件最方便的方法是使用杀毒软件经常自带的“粉碎文件”，其次是重启电脑。<br>再次提示：重启电脑可以解决99%的问题，重装系统可以解决99.9%的问题，重买电脑可以解决99.99%的问题，智商问题和BUG重来也解决不了</p><h3 id="一"><a href="#一" class="headerlink" title="一"></a>一</h3><div class="note info simple"><p>尝试删除一个软件（本教程以NamoGIF这个绿色gif编辑软件做演示）</p></div><p><img src="https://ih.onektas.top/210328/2.png" style="zoom:80%" alt=""/><br></p><br><h3 id="二"><a href="#二" class="headerlink" title="二"></a>二</h3><div class="note info simple"><p>现在的信息比较模糊，进入文件夹全选文件删除</p></div><p><img src="https://ih.onektas.top/210328/1.png" style="zoom:70%" alt=""/><br></p><p><img src="https://ih.onektas.top/210328/3.png" style="zoom:70%" alt="现在的信息非常详细了"/><br></p><br><h3 id="三"><a href="#三" class="headerlink" title="三"></a>三</h3><div class="note info simple"><p>打开“任务管理器”选择“性能”选项卡，“打开资源监视器”</p></div><p><img src="https://ih.onektas.top/210328/4.png" style="zoom:60%" alt=""/><br></p><br><h3 id="四"><a href="#四" class="headerlink" title="四"></a>四</h3><div class="note info simple"><p>选择“CPU”选项卡，在输入框中输入需要删除的文件名(不用输全)，关闭这个程序后就可以成功删除了</p></div><p><img src="https://ih.onektas.top/210328/5.png" style="zoom:60%" alt=""/><br></p><p><img src="https://ih.onektas.top/210328/3-1.png" style="zoom:70%" alt=""/><br></p><blockquote><p>输入文件名以红框里的为准</p></blockquote><br><h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><div class="note info simple"><p>第四步图二中的绿框会在比较特殊的情况下用到，当搜索框无法搜索出结果时，程序可能是出于暂停、别的状态，这时可能就需要在第四步图一中的“进程”里按照绿框的名字来手动寻找了</p></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>那些让我印象深刻的番剧（持续更新）</title>
+      <link href="posts/676d2855/"/>
+      <url>posts/676d2855/</url>
+      
+        <content type="html"><![CDATA[<div class="note warning simple"><p>回忆太累了，慢慢给它更完</p></div><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><br><div class="note default simple"><p>2021年3月23日开始整理<br>按第一次观看时间排序</p></div><br><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">格式：</span><br><span class="line">    《番剧名称》- 个人评分</span><br><span class="line">    原作</span><br><span class="line">    未看：</span><br><span class="line">    已看：</span><br><span class="line">    短评：</span><br></pre></td></tr></table></figure><br><h2 id="2021-03-23后"><a href="#2021-03-23后" class="headerlink" title="2021.03.23后"></a>2021.03.23后</h2><br><h2 id="2021-03-23前"><a href="#2021-03-23前" class="headerlink" title="2021.03.23前"></a>2021.03.23前</h2><br><h3 id="《碧蓝之海》-4-7分"><a href="#《碧蓝之海》-4-7分" class="headerlink" title="《碧蓝之海》- 4.7分"></a>《碧蓝之海》- 4.7分</h3><p>漫画改<br>未看：-<br>已看：第一季<br>短评：给笑死，不过欢乐中依旧流露很多现实道理</p><br><h3 id="《月色真美》-4-7分"><a href="#《月色真美》-4-7分" class="headerlink" title="《月色真美》-4.7分"></a>《月色真美》-4.7分</h3><p>原创<br>未看：-<br>已看：第一季<br>短评：很好的纯爱番</p><br><h3 id="《为美好的世界献上祝福》-4-7分"><a href="#《为美好的世界献上祝福》-4-7分" class="headerlink" title="《为美好的世界献上祝福》- 4.7分"></a>《为美好的世界献上祝福》- 4.7分</h3><p>小说改<br>未看：-<br>已看：第一季、第二季、剧场版<br>短评：慕名而看，很搞笑，不错的一次看番经历</p><br><h3 id="《喜欢本大爷的竟然就你一个？》-4-2分"><a href="#《喜欢本大爷的竟然就你一个？》-4-2分" class="headerlink" title="《喜欢本大爷的竟然就你一个？》- 4.2分"></a>《喜欢本大爷的竟然就你一个？》- 4.2分</h3><p>小说该<br>未看：-<br>已看：第一季(含OVA)<br>短评：结局感人，后宫番，但上头，顺带提一下《政宗君的复仇》</p><br><h3 id="《理科生坠入情网，故尝试证明》-4-4分"><a href="#《理科生坠入情网，故尝试证明》-4-4分" class="headerlink" title="《理科生坠入情网，故尝试证明》- 4.4分"></a>《理科生坠入情网，故尝试证明》- 4.4分</h3><p>漫画改<br>未看：-<br>已看：第一季<br>短评：理科爱好者狂喜，虽然我理科很差，但不妨碍我喜欢，恋爱环节满分</p><br><h3 id="《在魔王城说晚安》-4-2分"><a href="#《在魔王城说晚安》-4-2分" class="headerlink" title="《在魔王城说晚安》- 4.2分"></a>《在魔王城说晚安》- 4.2分</h3><p>漫画改<br>未看：-<br>已看：第一季<br>短评：日常搞笑，最后几集看了有点触动，故收录</p><br><h3 id="《魔女之旅》-4-3分"><a href="#《魔女之旅》-4-3分" class="headerlink" title="《魔女之旅》- 4.3分"></a>《魔女之旅》- 4.3分</h3><p>小说改<br>未看：-<br>已看：第一季<br>短评：零开高走，看PV的时候几乎没人为这部番说好话，本以为是一部会被遗忘的番，好看，剧情有意思，伊蕾娜<em>最高の</em></p><br><h3 id="《无能的奈奈》-无能力者娜娜-4-3分"><a href="#《无能的奈奈》-无能力者娜娜-4-3分" class="headerlink" title="《无能的奈奈》(无能力者娜娜) - 4.3分"></a>《无能的奈奈》(无能力者娜娜) - 4.3分</h3><p>漫画改<br>未看：-<br>已看：第一季<br>短评：低开高走，当时大家的注意力全在《恶玉DRIVE》(全员恶玉)和《成神之日》上，结果这边出乎意料那边也出乎意料，好番评价奉上，另外两部给我烂吐了，此后再也不敢看新番了</p><br><h3 id="《盾之勇者成名录》-4-5分"><a href="#《盾之勇者成名录》-4-5分" class="headerlink" title="《盾之勇者成名录》- 4.5分"></a>《盾之勇者成名录》- 4.5分</h3><p>小说改<br>未看：<br>已看：第一季<br>短评：忘了先看史莱姆还是先看这个，这部番刚好能爽到我的点上，有种我希望这么干，男主竟真这么干的快感</p><br><h3 id="《关于我转生变成史莱姆这档事》-4-5分"><a href="#《关于我转生变成史莱姆这档事》-4-5分" class="headerlink" title="《关于我转生变成史莱姆这档事》- 4.5分"></a>《关于我转生变成史莱姆这档事》- 4.5分</h3><p>漫画改<br>未看：-<br>已看：第一季、OAD、第二季<br>短评：爽番，第一季上头，是我看过的爽番里最好看的(因为我平常不看爽番)，第二季保留意见</p><br><h3 id="《异种族风俗娘评鉴指南》-4-2分"><a href="#《异种族风俗娘评鉴指南》-4-2分" class="headerlink" title="《异种族风俗娘评鉴指南》- 4.2分"></a>《异种族风俗娘评鉴指南》- 4.2分</h3><p>漫画改<br>未看：-<br>已看：第一季<br>短评：20年最强表番，20年1月档期最强作品</p><br><h3 id="《只要可爱即使是变态你也会喜欢我吧？》-4-2分"><a href="#《只要可爱即使是变态你也会喜欢我吧？》-4-2分" class="headerlink" title="《只要可爱即使是变态你也会喜欢我吧？》- 4.2分"></a>《只要可爱即使是变态你也会喜欢我吧？》- 4.2分</h3><p>小说改<br>未看：-<br>已看：第一季<br>短评：意想不到，所以印象深刻</p><br><h3 id="《徒然Children》-徒然喜欢你-4-5分"><a href="#《徒然Children》-徒然喜欢你-4-5分" class="headerlink" title="《徒然Children》(徒然喜欢你)- 4.5分"></a>《徒然Children》(徒然喜欢你)- 4.5分</h3><p>漫画改<br>未看：-<br>已看：第一季<br>短评：主搞笑副纯爱，差点给我笑死，甚至在写这短短几个字的时候我都笑出了声</p><br><h3 id="《白猫计划-ZERO-CHRONICLE》-0分"><a href="#《白猫计划-ZERO-CHRONICLE》-0分" class="headerlink" title="《白猫计划 ZERO CHRONICLE》- 0分"></a>《白猫计划 ZERO CHRONICLE》- 0分</h3><p>短评：我真踏马谢谢了，会有这么烂的番。一直以来我作为老强迫症患者，只要看了一部番的开头，不管有多难看我都会给他看完，运气好的是，我看的番的质量一直不错，很幸运给我推荐番剧的那些右友们。直到看了这部番，我竟然硬是给它看完了，好家伙当天失眠加头疼，此后如果不喜欢一部番，我都会果断弃坑，看番是为了快乐，谢谢这部番，特此纪念！</p><br><h3 id="《辉夜大小姐想让我告白》-4-7分"><a href="#《辉夜大小姐想让我告白》-4-7分" class="headerlink" title="《辉夜大小姐想让我告白》- 4.7分"></a>《辉夜大小姐想让我告白》- 4.7分</h3><p>漫画改<br>未看：-<br>已看：第一季、第二季<br>短评：某up推荐去看的，一看就上头，恋爱搞笑类型</p><br><h3 id="《五等分的花嫁》-4分"><a href="#《五等分的花嫁》-4分" class="headerlink" title="《五等分的花嫁》- 4分"></a>《五等分的花嫁》- 4分</h3><p>漫画改<br>未看：-<br>已看：第一季、第二季<br>短评：第一季非常上头，忍不住想要一口气看完，第二季保留意见</p><br><h3 id="《DARLING-in-the-FRANXX》-4-7分"><a href="#《DARLING-in-the-FRANXX》-4-7分" class="headerlink" title="《DARLING in the FRANXX》- 4.7分"></a>《DARLING in the FRANXX》- 4.7分</h3><p>原创<br>未看：-<br>已看：第一季<br>短评：国家队，心中最好的原创动画</p><br><h3 id="《情色漫画老师》-4-1分"><a href="#《情色漫画老师》-4-1分" class="headerlink" title="《情色漫画老师》- 4.1分"></a>《情色漫画老师》- 4.1分</h3><p>小说改<br>未看：-<br>已看：-<br>短评：顺提同作者的《我的妹妹不可能这么可爱》，后宫番，剧情有槽点，但有两个角色印象深刻，故收录</p><h3 id="《小林家的龙女仆》-4-5"><a href="#《小林家的龙女仆》-4-5" class="headerlink" title="《小林家的龙女仆》- 4.5"></a>《小林家的龙女仆》- 4.5</h3><p>漫画改<br>未看：-<br>已看：第一季(含OVA)<br>短评：内容忘的差不多了，但好看的感觉还留着</p><br><h3 id="《刺客伍六七》-4分"><a href="#《刺客伍六七》-4分" class="headerlink" title="《刺客伍六七》- 4分"></a>《刺客伍六七》- 4分</h3><p>原创<br>未看：第三季<br>已看：第一季(含番外)、第二季<br>短评：入宅后截至21年3月23日看的唯一国产动画，第三季某集看了引起生理不适，搁置</p><br><h3 id="《刀剑神域》-4-1分"><a href="#《刀剑神域》-4-1分" class="headerlink" title="《刀剑神域》- 4.1分"></a>《刀剑神域》- 4.1分</h3><p>小说改<br>未看：-<br>已看：第一季、第二季、剧场版、GGO外传、第三季(全部)<br>短评：入宅后看的第三部动画，如果没有第三季后篇，我个人还是挺喜欢这部番的，特别是第三季前篇，ED超级好评，然而这依旧是部后宫番，感情混乱甚至有ntr属性，第三季烂尾，实属遗憾</p><br><h3 id="《Re：从零开始的异世界生活》-4分"><a href="#《Re：从零开始的异世界生活》-4分" class="headerlink" title="《Re：从零开始的异世界生活》- 4分"></a>《Re：从零开始的异世界生活》- 4分</h3><p>小说改<br>未看：第二季后半<br>已看：第一季、OVA1、OVA2、第二季前半<br>短评：印象中是入宅后看的第三部动画，高中在教室有人放过，第一季很棒，可惜我对艾米利亚不感冒，所以第二季后半搁置</p><br><h3 id="《约会大作战》-4分"><a href="#《约会大作战》-4分" class="headerlink" title="《约会大作战》- 4分"></a>《约会大作战》- 4分</h3><p>小说改<br>未看：-<br>已看：第一季、第二季、剧场版、第三季、狂三外传<br>短评：入宅后的第二部动画，纯爱入宅，第一次看后宫番，第一集觉得会有这么白给的女主，果断弃坑，因为实在无聊又捡了起来，还算可以，不过，<strong>大爱狂三</strong></p><br><h1 id="从心底觉得是好番剧"><a href="#从心底觉得是好番剧" class="headerlink" title="从心底觉得是好番剧"></a>从心底觉得是好番剧</h1><br><h3 id="《约定的梦幻岛》-4-9分"><a href="#《约定的梦幻岛》-4-9分" class="headerlink" title="《约定的梦幻岛》- 4.9分"></a>《约定的梦幻岛》- 4.9分</h3><p>漫画改<br>未看：第二季<br>已看：第一季<br>短评：作为一个纯动画党照样接受不了第二季，最新一集甚至把原作作者从制作名单里移掉了。第一季很棒，人物魅力塑造的很好，很难想象一部12集的动画能做到这样的程度，一度成为心目中最好的番剧</p><br><h3 id="《新石纪-Dr-STONE-STONE-WARS》-4-8分"><a href="#《新石纪-Dr-STONE-STONE-WARS》-4-8分" class="headerlink" title="《新石纪 Dr.STONE STONE WARS》- 4.8分"></a>《新石纪 Dr.STONE STONE WARS》- 4.8分</h3><p>漫画改<br>未看：-<br>已看：第一季、第二季<br>短评：第一季完美满足我，Minecraft终极爱好者、生存游戏爱好者、科学爱好者，谢谢，有被满足到。第二季补充了关键角色的设定，直接移入好番栏目</p><br><h3 id="《星之梦》-5分"><a href="#《星之梦》-5分" class="headerlink" title="《星之梦》- 5分"></a>《星之梦》- 5分</h3><p>Gal改<br>未看：剧场版1、剧场版2<br>已看：TV<br>短评：这部番剧有点特殊，说实话动画可以算都没看过。有段时间想要入坑Galgame，在手机上下载了模拟器，第一部日产Gal(此前是mirror同公司的fox hime zero，这两者严格来说不是gal而是视觉小说)，所以这部番是我第一次看了原作再去观赏的，原作满分，动画部分场景根据计算是不现实的，原作虽为2004年的游戏，但场景方面下的功夫比动画强很多。剧场版1、2是原创续作</p><br><h3 id="《进击的巨人》-5分"><a href="#《进击的巨人》-5分" class="headerlink" title="《进击的巨人》- 5分"></a>《进击的巨人》- 5分</h3><p>漫画改<br>未看：所有剧场版(总集)、OAD<br>已看：第一季、第二季、第三季、第四季<br>短评：看过的都说强，心目中的神作。顺提一下同动画制作公司的《甲铁城的卡巴内利》《终结的炽天使》</p><br><h3 id="《-Little-Busters-》-5分"><a href="#《-Little-Busters-》-5分" class="headerlink" title="《 Little Busters ! 》- 5分"></a>《 Little Busters ! 》- 5分</h3><p>Gal改<br>未看：库特wafter<br>已看：第一季、OVA1、第二季、OVA2<br>短评：入宅至21年3月23日看过的最感人的番剧，第一季前期很日常，但对我来说有一种神奇的魔力让我继续看下去，中期剧情展开后，一度成为心目中最好的番剧</p><br><h3 id="《青春笨蛋少年不做兔女郎学姐的梦》"><a href="#《青春笨蛋少年不做兔女郎学姐的梦》" class="headerlink" title="《青春笨蛋少年不做兔女郎学姐的梦》"></a>《青春笨蛋少年不做兔女郎学姐的梦》</h3><p>小说改<br>未看：-<br>已看：TV、剧场版<br>短评：21年3月二刷。顺带推荐《欢迎来到实力至上主义的教室》《冰菓》《果然我的青春恋爱物语有问题》。</p><br><h3 id="《Fate》-4-9分"><a href="#《Fate》-4-9分" class="headerlink" title="《Fate》- 4.9分"></a>《Fate》- 4.9分</h3><p>各种改<br>未看：未知<br>已看：未知<br>短评：这是一个体系超级大的ACGN作品，所以不方便评价，至少目前是这样(憋大招中…)</p><br><h3 id="《紫罗兰永恒花园》-4-9分"><a href="#《紫罗兰永恒花园》-4-9分" class="headerlink" title="《紫罗兰永恒花园》- 4.9分"></a>《紫罗兰永恒花园》- 4.9分</h3><p>小说改<br>未看：剧场版2<br>已看：TV版(含OVA)、剧场版(实为OVA)<br>短评：入宅后的第五部番剧，说是不看会遗憾的作品。TV版每一集都能让眼睛湿润，剧场版也很感人，确实是一部不看会遗憾的治愈番</p><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの时间轴 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ACG </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>超详细的健身安排表</title>
+      <link href="posts/32748ba0/"/>
+      <url>posts/32748ba0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="开始时间-2021年3月21日"><a href="#开始时间-2021年3月21日" class="headerlink" title="开始时间: 2021年3月21日"></a>开始时间: 2021年3月21日</h2><br><h2 id="时间表"><a href="#时间表" class="headerlink" title="时间表"></a>时间表</h2><table><thead><tr><th align="center">周一</th><th align="center">周二</th><th align="center">周三</th><th align="center">周四</th><th align="center">周五</th><th align="center">周六</th><th align="center">周日</th></tr></thead><tbody><tr><td align="center">14:55</td><td align="center">16:40</td><td align="center">-18:05</td><td align="center">16:40</td><td align="center">14:55\-18:05</td><td align="center">-18:05</td><td align="center">0</td></tr><tr><td align="center">15:30-17:30</td><td align="center">备选</td><td align="center">15:00-17:00</td><td align="center">备选</td><td align="center">休息</td><td align="center">15:00-17:00</td><td align="center">15:00-17:00</td></tr><tr><td align="center">R.1</td><td align="center"></td><td align="center">R.2</td><td align="center"></td><td align="center"></td><td align="center">R.3</td><td align="center">R.2</td></tr></tbody></table><br><h2 id="准备表"><a href="#准备表" class="headerlink" title="准备表"></a>准备表</h2><table><thead><tr><th align="center">&amp;&amp;</th><th align="center">||</th><th align="center">!|</th></tr></thead><tbody><tr><td align="center">健身包</td><td align="center">洗面奶</td><td align="center">纸巾</td></tr><tr><td align="center">水杯</td><td align="center">润肤乳</td><td align="center">毛巾</td></tr><tr><td align="center">功能水杯</td><td align="center">洗发水</td><td align="center">洗脸巾</td></tr></tbody></table><br><h2 id="热身拉伸"><a href="#热身拉伸" class="headerlink" title="热身拉伸"></a>热身拉伸</h2><img src="https://ih.onektas.top/210313/1.jpg" style="zoom:90%" alt="热身，每组动作接拉伸"/><p><br><br></p><h2 id="R-1"><a href="#R-1" class="headerlink" title="R.1"></a>R.1</h2><h3 id="胸肌"><a href="#胸肌" class="headerlink" title="胸肌"></a>胸肌</h3><h4 id="平卧哑铃推举"><a href="#平卧哑铃推举" class="headerlink" title="平卧哑铃推举"></a>平卧哑铃推举</h4><img src="https://ih.onektas.top/210313/r11.jpg" style="zoom:55%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r11.GIF" style="zoom:48%" alt=""/><br><img src="https://ih.onektas.top/210313/g11.GIF" style="zoom:55%" alt=""/></div></div><p><br><br></p><h4 id="平卧哑铃飞鸟"><a href="#平卧哑铃飞鸟" class="headerlink" title="平卧哑铃飞鸟"></a>平卧哑铃飞鸟</h4><img src="https://ih.onektas.top/210313/r12.jpg" style="zoom:55%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r12.GIF" style="zoom:70%" alt=""/></div></div><p><br><br></p><h4 id="上斜卧哑铃推举"><a href="#上斜卧哑铃推举" class="headerlink" title="上斜卧哑铃推举"></a>上斜卧哑铃推举</h4><img src="https://ih.onektas.top/210313/r13.jpg" style="zoom:55%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r13.GIF" style="zoom:55%" alt=""/><br><img src="https://ih.onektas.top/210313/r13-2.GIF" style="zoom:55%" alt=""/></div></div><p><br><br></p><h4 id="上斜卧哑铃飞鸟"><a href="#上斜卧哑铃飞鸟" class="headerlink" title="上斜卧哑铃飞鸟"></a>上斜卧哑铃飞鸟</h4><img src="https://ih.onektas.top/210313/r14.jpg" style="zoom:45%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r14.GIF" style="zoom:55%" alt=""/><br><img src="https://ih.onektas.top/210313/r14-2.GIF" style="zoom:59%" alt=""/></div></div><p><br><br></p><h3 id="三角肌"><a href="#三角肌" class="headerlink" title="三角肌"></a>三角肌</h3><h4 id="哑铃侧平举"><a href="#哑铃侧平举" class="headerlink" title="哑铃侧平举"></a>哑铃侧平举</h4><img src="https://ih.onektas.top/210313/r15.jpg" style="zoom:55%" alt=""/><br><img src="https://ih.onektas.top/210313/r15-2.jpg" style="zoom:55%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r15.GIF" style="zoom:75%" alt=""/><br><img src="https://ih.onektas.top/210313/r15-2.GIF" style="zoom:69%" alt=""/><br><img src="https://ih.onektas.top/210313/r15-3.GIF" style="zoom:108%" alt=""/></div></div><p><br><br></p><h4 id="哑铃前平举"><a href="#哑铃前平举" class="headerlink" title="哑铃前平举"></a>哑铃前平举</h4><img src="https://ih.onektas.top/210313/r16.jpg" style="zoom:55%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r16.GIF" style="zoom:110%" alt=""/><br><img src="https://ih.onektas.top/210313/r16-2.GIF" style="zoom:52%" alt=""/><br><img src="https://ih.onektas.top/210313/g16.GIF" style="zoom:58%" alt=""/><br><img src="https://ih.onektas.top/210313/g16-2.GIF" style="zoom:48%" alt=""/></div></div><p><br><br></p><h4 id="哑铃推举"><a href="#哑铃推举" class="headerlink" title="哑铃推举"></a>哑铃推举</h4><img src="https://ih.onektas.top/210313/r17.jpg" style="zoom:55%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r17.GIF" style="zoom:104%" alt=""/><br><img src="https://ih.onektas.top/210313/g17.GIF" style="zoom:43%" alt=""/><br><img src="https://ih.onektas.top/210313/g17-2.GIF" style="zoom:90%" alt=""/></div></div><p><br><br></p><h3 id="肱三头肌"><a href="#肱三头肌" class="headerlink" title="肱三头肌"></a>肱三头肌</h3><h4 id="仰姿反屈伸"><a href="#仰姿反屈伸" class="headerlink" title="仰姿反屈伸"></a>仰姿反屈伸</h4><img src="https://ih.onektas.top/210313/r18.jpg" style="zoom:55%" alt=""/><p><br><br></p><h4 id="仰卧哑铃臂屈伸"><a href="#仰卧哑铃臂屈伸" class="headerlink" title="仰卧哑铃臂屈伸"></a>仰卧哑铃臂屈伸</h4><img src="https://ih.onektas.top/210313/r19.jpg" style="zoom:55%" alt=""/><p><br><br></p><h4 id="颈后单臂屈伸"><a href="#颈后单臂屈伸" class="headerlink" title="颈后单臂屈伸"></a>颈后单臂屈伸</h4><img src="https://ih.onektas.top/210313/r110.jpg" style="zoom:55%" alt=""/><p><br><br></p><h4 id="坐姿哑铃颈后臂屈伸"><a href="#坐姿哑铃颈后臂屈伸" class="headerlink" title="坐姿哑铃颈后臂屈伸"></a>坐姿哑铃颈后臂屈伸</h4><img src="https://ih.onektas.top/210313/r111.jpg" style="zoom:55%" alt=""/><p><br><br></p><h4 id="俯身哑铃臂屈伸"><a href="#俯身哑铃臂屈伸" class="headerlink" title="俯身哑铃臂屈伸"></a>俯身哑铃臂屈伸</h4><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r111.GIF" style="zoom:55%" alt=""/></div></div><p><br><br></p><h2 id="R-2"><a href="#R-2" class="headerlink" title="R.2"></a>R.2</h2><h3 id="肱二头"><a href="#肱二头" class="headerlink" title="肱二头"></a>肱二头</h3><h4 id="臂弯举"><a href="#臂弯举" class="headerlink" title="臂弯举"></a>臂弯举</h4><img src="https://ih.onektas.top/210313/r21.jpg" style="zoom:55%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r21.GIF" style="zoom:53%" alt=""/><br><img src="https://ih.onektas.top/210313/r21-2.GIF" style="zoom:70%" alt=""/><br><img src="https://ih.onektas.top/210313/r21-3.GIF" style="zoom:45%" alt=""/><br><img src="https://ih.onektas.top/210313/g21.GIF" style="zoom:42%" alt=""/><br><img src="https://ih.onektas.top/210313/g21-2.GIF" style="zoom:95%" alt=""/></div></div><p><br><br></p><h3 id="小臂"><a href="#小臂" class="headerlink" title="小臂"></a>小臂</h3><h4 id="锤击式臂弯举"><a href="#锤击式臂弯举" class="headerlink" title="锤击式臂弯举"></a>锤击式臂弯举</h4><img src="https://ih.onektas.top/210313/r22.jpg" style="zoom:55%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r22.GIF" style="zoom:45%" alt=""/></div></div><p><br><br></p><h4 id="翻腕儿"><a href="#翻腕儿" class="headerlink" title="翻腕儿"></a>翻腕儿</h4><img src="https://ih.onektas.top/210313/r23.jpg" style="zoom:75%" alt=""/><p><br><br></p><h3 id="腹肌"><a href="#腹肌" class="headerlink" title="腹肌"></a>腹肌</h3><h4 id="屈膝仰卧起坐"><a href="#屈膝仰卧起坐" class="headerlink" title="屈膝仰卧起坐"></a>屈膝仰卧起坐</h4><img src="https://ih.onektas.top/210313/r24.jpg" style="zoom:55%" alt=""/><p><br><br></p><h4 id="体操梯仰卧起坐"><a href="#体操梯仰卧起坐" class="headerlink" title="体操梯仰卧起坐"></a>体操梯仰卧起坐</h4><img src="https://ih.onektas.top/210313/r25.jpg" style="zoom:55%" alt=""/><p><br><br></p><h4 id="屈腿仰卧起坐"><a href="#屈腿仰卧起坐" class="headerlink" title="屈腿仰卧起坐"></a>屈腿仰卧起坐</h4><img src="https://ih.onektas.top/210313/r26.jpg" style="zoom:55%" alt=""/><p><br><br></p><h4 id="哑铃侧屈"><a href="#哑铃侧屈" class="headerlink" title="哑铃侧屈"></a>哑铃侧屈</h4><img src="https://ih.onektas.top/210313/r27.jpg" style="zoom:55%" alt=""/><p><br><br></p><h2 id="R-3"><a href="#R-3" class="headerlink" title="R.3"></a>R.3</h2><h3 id="背部"><a href="#背部" class="headerlink" title="背部"></a>背部</h3><h4 id="硬拉"><a href="#硬拉" class="headerlink" title="硬拉"></a>硬拉</h4><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/g31.GIF" style="zoom:60%" alt=""/><br><img src="https://ih.onektas.top/210313/g31-3.GIF" style="zoom:50%" alt=""/><br><img src="https://ih.onektas.top/210313/g31-4.GIF" style="zoom:78%" alt=""/></div></div><p><br><br></p><h4 id="哑铃划船"><a href="#哑铃划船" class="headerlink" title="哑铃划船"></a>哑铃划船</h4><img src="https://ih.onektas.top/210313/r31.jpg" style="zoom:55%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r31.GIF" style="zoom:55%" alt=""/><br><img src="https://ih.onektas.top/210313/r31-2.GIF" style="zoom:93%" alt=""/><br><img src="https://ih.onektas.top/210313/g31-2.GIF" style="zoom:75%" alt=""/></div></div><p><br><br></p><h3 id="斜方肌"><a href="#斜方肌" class="headerlink" title="斜方肌"></a>斜方肌</h3><h4 id="耸肩提哑铃"><a href="#耸肩提哑铃" class="headerlink" title="耸肩提哑铃"></a>耸肩提哑铃</h4><img src="https://ih.onektas.top/210313/r32.jpg" style="zoom:55%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/r32.GIF" style="zoom:55%" alt=""/><br><img src="https://ih.onektas.top/210313/g32.GIF" style="zoom:55%" alt=""/></div></div><p><br><br></p><h4 id="引体向上"><a href="#引体向上" class="headerlink" title="引体向上"></a>引体向上</h4><img src="https://ih.onektas.top/210313/r33.jpg" style="zoom:55%" alt=""/><p><br><br></p><h3 id="腿部"><a href="#腿部" class="headerlink" title="腿部"></a>腿部</h3><h4 id="负重躬步"><a href="#负重躬步" class="headerlink" title="负重躬步"></a>负重躬步</h4><img src="https://ih.onektas.top/210313/r34.jpg" style="zoom:55%" alt=""/><br><div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>GIF示例</span></div>    <div class="hide-content"><img src="https://ih.onektas.top/210313/g34.GIF" style="zoom:85%" alt=""/></div></div><p><br><br></p><h4 id="负重半蹲"><a href="#负重半蹲" class="headerlink" title="负重半蹲"></a>负重半蹲</h4><img src="https://ih.onektas.top/210313/r35.jpg" style="zoom:55%" alt=""/><p><br><br></p><h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><div class="note simple"><p><strong>每组力量练习之后，相应部位拉伸15秒</strong></p><p><strong>快上慢下，理想值为上升速度是下降的两倍</strong></p><p><strong>RM，1-4增长绝对肌力，6-12增长肌肉围度，16-20发达小肌肉群、增进肌肉线条弹性，25次以上用于减脂、增强心肺功能、健身塑形等</strong></p></div><br><h2 id="术语解释"><a href="#术语解释" class="headerlink" title="术语解释"></a>术语解释</h2><div class="note simple"><p><strong>R.n：Round，我把健身分三个环节，每次执行一个环节</strong></p><p><strong>&amp;&amp;：与，意思是必带物品</strong></p><p><strong>||：或，意思是可带物品</strong></p><p><strong>!|：乱写的，意思是需补充物品</strong></p></div><br><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><div class="note primary simple"><p><a href="https://www.zhihu.com/question/36351193/answer/167974298">知乎@型爷，健身小白如何健身？</a></p></div><div class="note primary simple"><p><a href="https://www.zhihu.com/question/20710436/answer/20645564">知乎@鑫有灵犀，如何利用哑铃健身？</a></p></div><div class="note primary simple"><p><a href="https://zhuanlan.zhihu.com/p/62936616">知乎@KG运动，简单易懂！最全哑铃动作动图，用哑铃锻炼全身肌肉</a></p></div><div class="note primary simple"><p><a href="https://zhuanlan.zhihu.com/p/63528706">知乎@KG运动，最全杠铃锻炼图解，明明白白练全身</a></p></div><div class="note primary simple"><p><a href="https://www.zhihu.com/question/21274334/answer/265173974">知乎@小象叔叔健身房都有哪些健身器材？分别有什么作用？</a></p></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 健身 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第一个手办</title>
+      <link href="posts/5baa90a1/"/>
+      <url>posts/5baa90a1/</url>
+      
+        <content type="html"><![CDATA[<font face="微软雅黑" size=3><h3 id="2021年3月7日，阴"><a href="#2021年3月7日，阴" class="headerlink" title="2021年3月7日，阴"></a>2021年3月7日，阴</h3><br><p>2020/10/23，相中这款手办然后付了款，1月份到货，因怕寄回家社死，于是寄到了学校，直到3月4日开学才拿到手</p><img src="https://ih.onektas.top/210307/0.jpg" style="zoom:20%" alt="官图"/><p><br><br></p><p>实物到手有点失望，整体偏红，幸运的是除此外没有任何翻车。虽说实物不好看，但是拍出来的照片很好看</p><img src="https://ih.onektas.top/210307/3.jpg" style="zoom:20%" alt="像素级手动虚化"/><p><br><br></p><img src="https://ih.onektas.top/210307/4.jpg" style="zoom:20%" alt="微修"/><p><br><br></p><img src="https://ih.onektas.top/210307/5.jpg" style="zoom:20%" alt="微修"/><p><br><br></p><img src="https://ih.onektas.top/210307/6.jpg" style="zoom:20%" alt="微修"/><p><br><br></p><img src="https://ih.onektas.top/210307/1.jpg" style="zoom:15%" alt="快递盒"/><p><br><br></p><img src="https://ih.onektas.top/210307/2.jpg" style="zoom:15%" alt="包装"/></font><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの时间轴 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 纪念 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Holy Lance使用教程，在网页中监控Linux/Win硬件信息</title>
+      <link href="posts/80980631/"/>
+      <url>posts/80980631/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note default simple"><p>推荐应用：<a href="https://www.bt.cn/">宝塔面板</a></p></div><blockquote><p>本次演示使用Vultr服务器，系统：CentOS8</p></blockquote><br><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><br><p>很多性能监控仪表盘需要复杂的软件环境，而Holy Lance仅仅只需要PHP+Web管理器就可以实现全部功能</p><p>宝塔面板可以一键安装软件环境、快捷管理网站，强烈推荐。</p><br><div class="note info simple"><p>进入宝塔面板，可以按推荐安装LNMP，也可以在软件商店里自己安装PHP+Nginx</p></div><img src="https://ih.onektas.top/210306/1.png" style="zoom:60%" alt="推荐LNMP，也可以照下图自己安装PHP和Nginx"/><br><img src="https://ih.onektas.top/210306/2.png" style="zoom:40%" alt="PHP版本需在5.2以上，推荐5.6"/><img src="https://ih.onektas.top/210306/3.png" style="zoom:90%" alt="Nginx推荐最新版"/><p><br><br></p><h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><div class="note info simple"><p>在软件商店中找到自己安装的PHP版本，进入设置，在“禁用函数中”删除“exec”和“shell_exec”，否则Holy  Lance部分功能无法使用</p></div><img src="https://ih.onektas.top/210306/5.png" style="zoom:60%" alt=""/><p><br><br></p><div class="note info simple"><p>顺带一提，宝塔面板有防火墙功能，很多网络服务在安装宝塔面板后无法使用原因找到了</p></div><img src="https://ih.onektas.top/210306/4.png" style="zoom:40%" alt=""/><p><br><br></p><h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><div class="note info simple"><p>在左侧的“网站”选项中新建一个站点，“域名”处填写自己的公网IPv4/域名。其他保持默认</p></div><blockquote><p>云服务器一般不会禁止建站，个人用户可能需要更改端口/局域网使用。另外，理论上支持IPv6建站</p></blockquote><img src="https://ih.onektas.top/210306/6.png" style="zoom:60%" alt=""/><p><br><br></p><div class="note info simple"><p>创建完成后进入网站根目录，上传下载好的<a href="https://github.com/lincanbin/Holy-Lance">Holy Lance</a>压缩包，再解压+剪切网页到根目录</p></div><img src="https://ih.onektas.top/210306/7.png" style="zoom:80%" alt=""/><br><img src="https://ih.onektas.top/210306/8.png" style="zoom:60%" alt=""/><p><br><br></p><div class="note info simple"><p>如果以上步骤没有出错的话，恭喜你，你已经可以在浏览器中查看性能监控了</p></div><img src="https://ih.onektas.top/210306/9.png" style="zoom:38%" alt=""/><br><img src="https://ih.onektas.top/210306/10.png" style="zoom:41%" alt=""/><br><img src="https://ih.onektas.top/210306/11.png" style="zoom:40%" alt=""/><p><br><br></p><h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><div class="note info simple"><p>可以查阅 Holy Lance <a href="https://github.com/lincanbin/Holy-Lance">文档</a>，为网站配置访问密码</p></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>开学第一天</title>
+      <link href="posts/3bc2c78b/"/>
+      <url>posts/3bc2c78b/</url>
+      
+        <content type="html"><![CDATA[<font face="微软雅黑" size=3><h3 id="2021年3月5日，天气雨"><a href="#2021年3月5日，天气雨" class="headerlink" title="2021年3月5日，天气雨"></a>2021年3月5日，天气雨</h3><br><p>首先是这个学期的课程</p><ul><li>Unity3D开发</li><li>JavaScript+JQuery</li><li>云计算运维与开发</li><li>Python语言基础</li></ul><p>终于能正式学习JS了，此前搭建网站遇到JS问题直接不会。另外本想自学python，能在课堂上学到真是幸运</p><p>昨天，<br>终于拿到等了3个月的手办，等今天光线好起来给她拍拍照，另出一篇文章</p><p>和室友聊了一整天的话，一个寒假没见果然话题无数，甚至熄灯后聊了一个多小时的人生意义</p><br><p>这个学期的大致安排</p><ul><li>继续开发博客</li><li>继续写文章</li><li>健身三个月</li><li>开发第二个网站</li><li>好好学习课本</li><li>复习英语</li><li>复习高数</li><li>看完上年没看完的书</li></ul></font><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの日记心得 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>教你用AIDA64在手机上监控电脑性能</title>
+      <link href="posts/3caf0392/"/>
+      <url>posts/3caf0392/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一"><a href="#一" class="headerlink" title="一"></a>一</h2><div class="note info simple"><p>打开Aida64，左上角“选项——设置”，然后“左侧LCD——RemoteSensor——启用RemoteSensor Lcd支持”，最后右下角“应用”</p></div><img src="https://ih.onektas.top/210301/1.png" style="zoom:60%" alt=""/><blockquote><p>可以看到选项非常丰富，我选择这个方式的是通过网页来展示监控信息</p></blockquote><br><h2 id="二"><a href="#二" class="headerlink" title="二"></a>二</h2><div class="note info simple"><p><code>Win+R</code>打开CMD，输入<code>ipconfig</code>，找到IPv4地址，在手机浏览器里输入IPv4地址（手机和电脑必须在同一个局域网里）</p></div><img src="https://ih.onektas.top/210301/2.png" style="zoom:80%" alt=""/><blockquote><p>经实验IPv6无法使用，公网IPv4或通过“樱花穿透”可以实现远程监控</p></blockquote><br><h2 id="三"><a href="#三" class="headerlink" title="三"></a>三</h2><div class="note info simple"><p>回到Aida64，把“预览分辨率”改成手机得到的分辨率</p></div><img src="https://ih.onektas.top/210301/3.png" style="zoom:70%" alt=""/><p><br><br></p><h2 id="四"><a href="#四" class="headerlink" title="四"></a>四</h2><div class="note info simple"><p>确认已启用“RemoteSensor Lcd支持”，在左侧选择“LCD项目”，随意新建一个内容，完成点击右下角的应用生效</p></div><img src="https://ih.onektas.top/210301/4.png" style="zoom:50%" alt=""/><p><br><br></p><h2 id="五"><a href="#五" class="headerlink" title="五"></a>五</h2><div class="note info simple"><p>确认手机能显示信息后就可以开始自由搭配了，也可以导入别人编辑好的配置</p></div><img src="https://ih.onektas.top/210301/5.png" style="zoom:50%" alt=""/><blockquote><p><a href="https://bbs.nga.cn/read.php?tid=20168001&forder_by=postdatedesc&page=1">NGA大佬的分享</a></p></blockquote><br><h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><div class="note info simple"><p>Aida64显示FPS需要安装“RTSS”软件，巧的是微星小飞机也用RTSS来监控</p></div><br><div class="note info simple"><p>Aida64的FPS监控和微星小飞机一样，只能识别OpenGL、DirectX等API，所以要打开游戏才会有帧率显示</p></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Minecraft正版启动器下载慢？如何导入整合包？</title>
+      <link href="posts/7f45363c/"/>
+      <url>posts/7f45363c/</url>
+      
+        <content type="html"><![CDATA[<div class="note warning simple"><p>现已有支持微软账号的第三方启动器，不推荐使用官方启动器了</p></div><br><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note simple"><p>2014年9月15日，微软和Mojang工作室共同宣布以25亿美元的价格收购Mojang工作室。自然而然的《我的世界》也成为了微软的游戏。曾经依旧拥有正版的用户不受影响，可以继续使用mojang账号。</p></div><div class="note simple"><p>然而近期开始，购买Java正版只能使用微软账号，并且微软宣布不久后所有mojang账号都会被迁移到微软账号</p><img src="https://ih.onektas.top/210227/1.png" style="zoom:80%" alt=""/></div><p><br><br></p><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>java版MC游戏本体未进行任何加密，下述两款第三方启动器可以下载游戏本体、安装Forge等，也支持Mojang正版账号登录，不能视为盗版启动器</p><div class="note default simple"><p>推荐启动器：<a href="https://nsiso.com/">Nisio</a>、<a href="https://hmcl.huangyuhui.net/download">hmcl</a></p></div><blockquote><p>hmcl下载稳定，用来下载纯净版，Nisio支持版本隔离，用来下载Forge</p></blockquote><br><h2 id="下载慢"><a href="#下载慢" class="headerlink" title="下载慢"></a>下载慢</h2><p>正版启动器下载慢几乎没有解决方法，只能看运气（挂什么都没用）</p><div class="note info simple"><p>新建文件夹，移入hmcl并打开，下载所需要的版本，如果加载不出来更换下载源</p></div><img src="https://ih.onektas.top/210227/2.png" style="zoom:80%" alt=""/><blockquote><p>下载完后使用第三方启动器打开一次游戏，确保文件完整</p></blockquote><br><div class="note info simple"><p>然后，将游戏目录中的<code>.minecraft</code>移入到<code>C:\用户\用户名\AppData\Roaming</code>中，如果已存在<code>.minecraft</code>这是正版启动器生成的MC文件，备份后删除</p></div><img src="https://ih.onektas.top/210227/3.png" style="zoom:60%" alt=""/><br><img src="https://ih.onektas.top/210227/4.png" style="zoom:70%" alt=""/><blockquote><p>如果找不到<code>APPData</code>这个文件夹，需要设置隐藏可查看</p></blockquote><br><div class="note info simple"><p>之后打开正版启动器，新建一个配置即可打开游戏</p></div><img src="https://ih.onektas.top/210227/5.png" style="zoom:60%" alt=""/><br><img src="https://ih.onektas.top/210227/6.png" style="zoom:60%" alt=""/><p><br><br></p><h2 id="导入整合包"><a href="#导入整合包" class="headerlink" title="导入整合包"></a>导入整合包</h2><p>正版启动器识别版本是靠<code>C:\用户\用户名\AppData\Roaming\.minecraft\version</code>里的信息来的。</p><p>将整合包/自己用nisio下载的<code>.minecraft</code>，移入到<code>C:\用户\用户名\AppData\Roaming</code>中，正版启动器就能识别到新的配置</p><p>如果识别不到，极可能是因为使用hmcl/手动安装Forge把原版信息覆盖了，此时用Nisio重新安装Forge即可识别</p><img src="https://ih.onektas.top/210227/7.png" style="zoom:80%" alt=""/><p><br><br></p><h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><div class="note info simple"><p>网络情况好，仅用Nisio即可，不好请用hmcl下载纯净版，再用Nisio下载Forge</p></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Minecraft </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>终于明白了，我为什么老是“强迫症”</title>
+      <link href="posts/96525a9d/"/>
+      <url>posts/96525a9d/</url>
+      
+        <content type="html"><![CDATA[<div class="note warning simple"><p>本篇内容不具备医学专业性，仅仅是博主针对自己行为的一种思考。如果真的对自己某些行为感到困扰建议去三甲医院进行心理咨询，也推荐阅读“包祖晓医生”的“禅疗四部曲”，另外再推荐《分心不是我的错》，也许你并不是强迫症，只是患有“注意力缺失”症。</p></div><font face="微软雅黑" size=3><h3 id="2021年2月20日，天气晴"><a href="#2021年2月20日，天气晴" class="headerlink" title="2021年2月20日，天气晴"></a>2021年2月20日，天气晴</h3><br><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;说到“强迫症”，首先得讲讲“完美主义”：完美主义分为“积极完美主义”和“消极完美主义”。适当的完美主义可以促使人进步，激发创造力、判断力；消极完美主义与人们所说的强迫症近似，是一种建立在处处不满意、不完美之上的，极度追求完美、毫无瑕疵的想法，是由于处于极端的环境缺乏沟通缺乏安全而形成的。</p><br><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;“强迫症”是一种精神疾病，与网络上经常说的强迫症不同，这种疾病是真实能够对人生活造成巨大影响的。实际上，很多现象并不能算是强迫症，比如，大家对于起步日期的意见经常一致：</p><ul><li>1月1日被普遍认为是一年最好的起点</li><li>每月初一被普遍认为是每月最好的起点</li><li>早晨被普遍认为是一天最好的起点</li></ul><p>相对脏乱的环境，整洁的环境更能让人舒适。相对混乱，人们更喜欢秩序。但如果过分追求完美，明明不想去做，但又要逼迫自己去做，才可能是“强迫症”。因为这种疾病确诊困难，所以人们大部分强迫行为，只能称为“强迫症状”。</p><br><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;我出现这种症状往往是因为巨大的压力，比如：今天有纪念意义，任务必须今天完成；这次机会难得，事情必须这次做完；东西做好了吗，我已经迫不及待了；当压迫感过大，我就会希望自己能够“完美”然后就会伴着“强迫症状”一起出现。</p><br><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;我最近出现“强迫症”是在2月20日的下午。两天前我与朋友约好，在20日下午去他家一起搭建服务器，由于之前并没有规划好这个任务，到他家后忙活了一下午。朋友送我离开时，我感到很不舒服，我觉得这次搭建并不完美，出现很多问题，所以我希望重来。早已习惯的朋友告诉我是时候该解决自己的“强迫症”，无论是对自己也好，对别人也好。</p><br><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;回到家后，我冷静了一会，然后开始写思维导图，然而思维导图也拯救不了我，写出来依旧是一片混乱，于是我打开备忘录，把自己想说的话全部写上了，写着写着我才发现了这次一个严重的问题。就是因为没有好好规划这个重大的任务，到朋友家后，手忙脚乱，直到要离开了才胡乱确定，说这就是今天的成果了。</p><br><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;我思考了一圈，终归还是期限造成的压力，因为没有好好规划，而执行的时间只有下午的4个小时，如果失败就又得另外花时间重来，而且其他的事情又得做调整，这么思来想去，大脑就崩溃了。因为大脑做出的判断是无法在4个小时内完成这样一个目标模糊的任务，而我又试图反抗，就造成了“强迫症”，大脑认为工作规划不成立，需要重新规划，而我过于着急，却忽视了这一重要信息。</p><br><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;因为成果确实有问题，于是我开始尝试与朋友沟通，并且重新规划任务。3天后，我们再次实施这项任务，耗时6个小时，终于成功了。</p><br><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;结论果然是需要科学的规划，倾听自己的心灵，再做出合理判断。希望没有人再被“强迫思维”困扰。</p></font><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの日记心得 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 心得 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Minecraft服务器搭建教程（Linux篇）</title>
+      <link href="posts/6b70759/"/>
+      <url>posts/6b70759/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note warning simple"><p>注意：本教程内容仅适用于Java版我的世界(Minecraft:Java Edition)。经济允许的情况下建议支持正版，以获得最佳游戏体验</p></div><div class="note default simple"><p>推荐工具：Xshell、Xftp<br>推荐系统：CentOS 8.x</p></div><blockquote><p>本教程使用的是官方服务端+Forge/Fabric</p></blockquote><br><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><div class="note info simple"><p>以阿里云的轻量应用服务器为例，使用Xshell和Xftp或同类工具连接前，需要在阿里云里设置<code>远程连接密码</code></p></div><img src="https://ih.onektas.top/210213/1.png" style="zoom:40%" alt=""/><p><br><br></p><div class="note info simple"><p>还需要进入服务器的防火墙，把25565端口放行。不同云服务器的操作不同，可以百度搜索相应教程，也可以致电服务器的客服</p></div><img src="https://ih.onektas.top/210213/2.png" style="zoom:40%" alt=""/><br><h2 id="连接Linux"><a href="#连接Linux" class="headerlink" title="连接Linux"></a>连接Linux</h2><div class="note info simple"><p>打开Xshell，左上角选择”文件”——“新建”，在主机处输入云服务器的外网IP</p></div><img src="https://ih.onektas.top/210213/3.png" style="zoom:60%" alt=""/><p><br><br></p><div class="note info simple"><p>再点击”用户身份验证”，方法选择”Password”，用户名输入<code>root</code>，密码是之前设置的<code>远程连接密码</code>。输入完后点击确定即可成功连接，Xftp的连入方式同理</p></div><img src="https://ih.onektas.top/210213/4.png" style="zoom:60%" alt=""/><p><br><br></p><h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><div class="note warning simple"><p>可以看到不同的Linux系统的操作命令不同，甚至不同版本也会有区别，Linux用户请尽量安装本教程使用的CentOS8系统</p></div><div class="note simple"><p>如果Linux系统刚刚装好</p><ol><li>yum update &nbsp;&nbsp; # RHEL、CentOS使用这个 </li><li>apt-get update &nbsp;&nbsp; # Debian、Ubuntu使用这个</li></ol><p>安装Java </p><ol><li>yum install java -y &nbsp;&nbsp; # RHEL、CentOS使用这个</li><li>apt-get install java -y &nbsp;&nbsp; # Debian、Ubuntu使用这个</li></ol><p>安装screen，可以将MC服务器挂载至后台</p><ol><li>yum install screen -y &nbsp;&nbsp; # RHEL、CentOS使用这个 </li><li>apt-get install screen -y &nbsp;&nbsp; # Debian、Ubuntu使用这个</li></ol></div><br><h2 id="安装服务器"><a href="#安装服务器" class="headerlink" title="安装服务器"></a>安装服务器</h2><div class="note warning simple"><p>因为MC服务器的特性，可以直接把在<a href="/posts/cc8fcfce/">Windows安装</a>好的服务器通过Xftp工具复制过来用，也可以按照下面操作在Linux上安装</p></div><br><div class="note info simple"><p>连入Xshell和Xftp，在ftp里新建文件夹作为MC服务器目录，例：</p></div><img src="https://ih.onektas.top/210213/5.png" style="zoom:90%" alt=""/><p><br><br></p><div class="note info simple"><p>在<a href="https://mcversions.net/">这里</a>下载需要的服务器版本，下载时选择Server Jar，之后通过Xftp上传到服务器</p></div><img src="https://ih.onektas.top/210210/1.png" style="zoom:80%" alt=""/><blockquote><p>也可以使用<code>wget</code>命令在Linux上直接下载</p></blockquote><br><div class="note danger simple"><p>官方给出的服务器打开命令为<code>java -Xmx1024M -Xms1024M -jar minecraft_server.1.16.5.jar nogui</code><br>“java”代表要打开java文件；”-Xmx””-Xms”分别为分配最大内存和分配初始内存；”-jar”后面接文件目录；”nogui”代表不打开图形；<br>例如我的MC服务器文件在”/root/MC_Server1”里，服务端名称为”server.jar”(注意后缀)，Linux默认操作目录在”/root”<br>所以我先<code>cd MC_Server1</code>进入服务器目录<br>再输入<code>java -Xms1126M -Xmx1126M -jar server.jar nogui</code></p></div><br><div class="note info simple"><p>Xshell输入命令打开MC服务器，第一次打开必然报错<br>再用Xftp”使用记事本编辑”<code>eula.txt</code>，把文件里的<code>&quot;false&quot;</code>改成<code>&quot;true&quot;</code></p></div><blockquote><p>建议游玩前配置好<code>server.properties</code>文件，可以在<a href="https://minecraft-zh.gamepedia.com/Server.properties">这里</a>找到每一项的解释。如果有非正版用户需要加入服务器，<code>online-mode</code>这一项必须改成<code>false</code></p></blockquote><br><div class="note info simple"><p>Xshell再次输入命令，即可打开服务器</p></div><br><h2 id="安装Forge-Fabric"><a href="#安装Forge-Fabric" class="headerlink" title="安装Forge/Fabric"></a>安装Forge/Fabric</h2><p>&#160;&#160;&#160;&#160;*纯净服可跳过这一步</p><div class="note info simple"><p>安装Forge/Fabric会生成新的服务端，例Forge的为：<code>forge-server.jar</code>，之后打开新服务端即可使用Forge/Fabric</p></div><div class="tabs" id=""><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#-1">Forge</button></li><li class="tab"><button type="button" data-href="#-2">Fabric</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="-1"><p>Forge<a href="https://files.minecraftforge.net/">官网</a>，先在左侧选择需要的版本<br><img src="https://ih.onektas.top/210210/5.png" style="zoom:80%" alt=""/><br>之后通过Xftp将文件上传到Linux，也可以使用<code>wget</code>命令直接在Linux下载<br>默认安装命令为<code>java -jar forge-1.16.4-installer.jar nogui --installServer</code></p><blockquote><p>Forge安装成功率较低，建议耐心尝试</p></blockquote><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="-2"><p>Fabric<a href="https://fabricmc.net/">官网</a>，不需要考虑游戏版本，直接下载<br><img src="https://ih.onektas.top/210210/4.png" style="zoom:80%" alt=""/><br><img src="https://ih.onektas.top/210210/6.png" style="zoom:80%" alt=""/><br>之后通过Xftp将文件上传到Linux，也可以使用<code>wget</code>命令直接在Linux下载<br>默认安装命令为<code>java -jar fabric.jar nogui</code>，再按提示修改命令安装</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><h2 id="加入服务器"><a href="#加入服务器" class="headerlink" title="加入服务器"></a>加入服务器</h2><div class="note info simple"><p>因为云服务一般都提供公网IPv4地址，加入方直接在多人游戏——直接连接/添加服务器里输入服务器IP地址即可加入</p></div><br><h2 id="将服务器挂载至后台"><a href="#将服务器挂载至后台" class="headerlink" title="将服务器挂载至后台"></a>将服务器挂载至后台</h2><div class="note info simple"><p>如果没有安装<code>screen</code>软件，在退出Xshell后，服务器会自动关闭</p></div><br><div class="note simple"><p>安装好screen软件：</p><ol><li><p>Xshell输入<code>screen -S name</code>，例：<code>screen -S screen1</code>，创建一个新窗口(注意<code>-S</code>的S是大写)</p></li><li><p>然后再此窗口内输入，例：<code>java -Xms1024M -Xmx1024M -jar /root/MC_Server1/server.jar -nogui</code>打开服务器，再<code>Ctrl+A+D</code>，即可返回主窗口</p></li><li><p><code>screen -ls</code>查看已创建的窗口，之后<code>screen -r ID</code>进入开头为”ID”的窗口，<code>screen -XS &quot;ID&quot; quit</code>关闭开头为”ID”的窗口</p></li></ol></div><br><h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><div class="note info simple"><p>Xshell内<code>Ctrl+C</code>，可以关闭任何正在运行的程序，MC服务器也可以使用此快捷键退出</p></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Minecraft </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Minecraft服务器搭建教程（Windows篇）</title>
+      <link href="posts/cc8fcfce/"/>
+      <url>posts/cc8fcfce/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note warning simple"><p>注意：本教程内容仅适用于Java版我的世界(Minecraft:Java Edition)。经济允许的情况下建议支持正版，以获得最佳游戏体验</p></div><div class="note default simple"><p>推荐系统: Win10<br>Java官方下载：<a href="https://www.java.com/zh-CN/download/manual.jsp">Java</a></p></div><blockquote><p>本教程使用的是官方服务端+Forge/Fabric</p></blockquote><br><h2 id="下载服务端"><a href="#下载服务端" class="headerlink" title="下载服务端"></a>下载服务端</h2><div class="note info simple"><p>在<a href="https://mcversions.net/">这里</a>下载需要的服务器版本，下载时选择Server Jar</p></div><img src="https://ih.onektas.top/210210/1.png" style="zoom:80%" alt=""/><p><br><br></p><h2 id="安装服务端"><a href="#安装服务端" class="headerlink" title="安装服务端"></a>安装服务端</h2><div class="note info simple"><p>新建文件夹，打开下载好的服务器文件(红色箭头)，会自动生成几个文件<br>再打开<code>eula.txt</code>(绿色箭头)，把文件里的<code>false</code>改成<code>true</code></p></div><img src="https://ih.onektas.top/210210/2.png" style="zoom:50%" alt=""/><blockquote><p>现在这个文件夹就是服务器根目录了，里面有个<code>server.properties</code>文件，是服务器的配置文件，建议游玩前进行设置，可以在<a href="https://minecraft-zh.gamepedia.com/Server.properties">这里</a>找到每一项的解释。如果有非正版用户需要加入服务器，<code>online-mode</code>这一项必须改成<code>false</code></p></blockquote><p><br><br></p><div class="note info simple"><p>再次打开服务器文件，你会发现服务器已经可以打开了，而且根目录生成了更多的文件。当出现红色箭头这行话时，代表服务器已经成功打开了</p></div><img src="https://ih.onektas.top/210210/3.png" style="zoom:80%" alt=""/><p><br><br></p><h2 id="安装Forge-Fabric"><a href="#安装Forge-Fabric" class="headerlink" title="安装Forge/Fabric"></a>安装Forge/Fabric</h2><p>&#160;&#160;&#160;&#160;*纯净服可跳过这一步</p><div class="note info simple"><p>安装Forge/Fabric会生成新的服务端，例Forge的为：<code>forge-server.jar</code>，之后打开新服务端即可使用Forge/Fabric</p></div><div class="tabs" id=""><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#-1">Forge</button></li><li class="tab"><button type="button" data-href="#-2">Fabric</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="-1"><p>Forge<a href="https://files.minecraftforge.net/">官网</a>，先在左侧选择需要的版本<br><img src="https://ih.onektas.top/210210/5.png" style="zoom:80%" alt=""/><br><img src="https://ih.onektas.top/210210/8.png" style="zoom:80%" alt=""/></p><blockquote><p>Forge安装成功率较低，建议耐心尝试，在云服务器上安装的成功率较高</p></blockquote><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="-2"><p>Fabric<a href="https://fabricmc.net/">官网</a>，不需要考虑游戏版本，直接下载<br><img src="https://ih.onektas.top/210210/4.png" style="zoom:80%" alt=""/><br><img src="https://ih.onektas.top/210210/6.png" style="zoom:80%" alt=""/><br><img src="https://ih.onektas.top/210210/7.png" style="zoom:80%" alt=""/></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><h2 id="加入服务器"><a href="#加入服务器" class="headerlink" title="加入服务器"></a>加入服务器</h2><div class="note simple"><p>加入服务器和联机有共通之处，可以参考<a href="/posts/3b961951/#%E8%BF%9C%E7%A8%8B%E8%81%94%E6%9C%BA">这里</a>学习更多方式</p></div><div class="note simple"><p>如果没有修改过，服务器的默认端口号为<code>25565</code>，客户端会自动监听<code>25565</code>端口，所以加入服务器不需要输入端口号，直接输入IP即可(不懂继续看就明白了)</p></div><br><h3 id="局域网加入"><a href="#局域网加入" class="headerlink" title="局域网加入"></a>局域网加入</h3><div class="note info simple"><p><code>Win+S</code>打开CMD，输入<code>ipconfig</code>，需要加入方和你在同一个局域网内。在多人游戏——直接连接/添加服务器里输入IP即可加入，例：<code>192.168.3.12</code>，如果服务器在你的电脑上，自己加入时输入<code>127.0.0.1</code>即可进入游戏</p></div><img src="https://ih.onektas.top/210210/9.png" style="zoom:90%" alt=""/><p><br><br></p><h3 id="樱花穿透加入"><a href="#樱花穿透加入" class="headerlink" title="樱花穿透加入"></a>樱花穿透加入</h3><div class="note info simple"><p>在<a href="https://www.natfrp.com/">樱花穿透官网</a>注册账号并下载软件，在樱花穿透里新建隧道，可以直接找到(“javaw”就是MC)，点击后会自动填充，然后再选择服务器即可完成创建</p></div><img src="https://ih.onektas.top/210206/2.png" style="zoom:70%" alt="正常情况图中箭头的50673应为25565"/><p><br><br></p><div class="note info simple"><p>完成创建后需要回到软件主界面手动打开隧道，打开后会在系统右下角提示”域名”和”IP”<br>加入方在多人游戏里选择”直接连接”或”添加服务器”，输入下图中划绿线或者红线的部分即可进入服务器</p></div><div class="note warning simple"><p>因为樱花穿透给你分配的端口号不是我的世界默认的<code>25565</code>，因此樱花穿透方案必须要输入端口号，例：<code>109.166.36.55:25012</code>，但如果服务器在自己电脑上，自己加入时输入<code>127.0.0.1</code>即可进入</p></div><img src="https://ih.onektas.top/210206/3.png" style="zoom:100%" alt=""/><p><br><br></p><h3 id="IPv6加入"><a href="#IPv6加入" class="headerlink" title="IPv6加入"></a>IPv6加入</h3><div class="note simple"><p>此方法不需要任何额外工具，但部分老旧设备不支持IPv6。</p><ol><li>推荐使用手机，断开Wi-Fi后打开流量和热点，电脑连入后会自动获得公网IPv6</li><li>或者自行打开光猫和路由器的IPv6功能，电脑连入后也可以得到公网IPv6</li></ol></div><div class="note info simple"><p>注意：控制面板-网络和Internet-网络和共享中心-更改适配器设置中，确保你所连入的网络已经打开IPv6功能<br><strong>另外，服务器和加入方都必须拥有公网IPv6地址才可以加入</strong></p></div><img src="https://ih.onektas.top/210206/4.png" style="zoom:50%" alt=""/><p><br><br></p><div class="note info simple"><p>最后<code>Win+R</code>打开CMD，输入<code>ipconfig</code>，即可找到你的IPv6地址(红色箭头的两个都可以)。<br>绿色箭头所指的以<code>fe80</code>开头的IPv6地址是链路本地地址，不是公网IPv6地址</p></div><img src="https://ih.onektas.top/210206/5.png" style="zoom:55%" alt=""/><p><br><br></p><div class="note info simple"><p>加入方在多人游戏里选择”直接连接”或”添加服务器”，输入开服的电脑的IPv6地址即可加入，如果服务器在自己电脑上，自己加入时输入<code>::1</code>，即可进入游戏</p></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Minecraft </tag>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Minecraft各种联机方式</title>
+      <link href="posts/3b961951/"/>
+      <url>posts/3b961951/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note warning simple"><p>注意：本教程内容仅适用于Java版我的世界(Minecraft:Java Edition)。另外，高版本MC的加入方必须为正版用户，否则无法联机。经济允许的情况下建议支持正版，以获得最佳游戏体验</p></div><div class="note default simple"><p>推荐启动器：<a href="https://nsiso.com/">Nisio</a><br>Java官方下载：<a href="https://www.java.com/zh-CN/download/manual.jsp">Java</a></p></div><br><h2 id="局域网联机"><a href="#局域网联机" class="headerlink" title="局域网联机"></a>局域网联机</h2><div class="note info simple"><p>需要双方在同一个局域网内，例如，连接的是同一个Wi-Fi、手机热点<br>开存档方在游戏内打开”对局域网开放”，加入方在”多人游戏”内即可看见房间</p></div><img src="https://ih.onektas.top/210206/1.png" style="zoom:80%" alt=""/><p><br><br></p><h2 id="远程联机"><a href="#远程联机" class="headerlink" title="远程联机"></a>远程联机</h2><div class="note simple"><p>远程联机的方式大致分为三类</p><ol><li>V*N类，游侠对战平台等，有网络基础的可以自建V*N</li><li>内网穿透类，樱花穿透、frp、nps、zerotier等</li><li>公网类，个人用户很难获得公网IPv4地址，但三大运营商均免费提供公网IPv6地址</li></ol><p>下面介绍常用方便的方法</p></div><br><h3 id="樱花穿透"><a href="#樱花穿透" class="headerlink" title="樱花穿透"></a>樱花穿透</h3><div class="note info simple"><p>开存档方在<a href="https://www.natfrp.com/">樱花穿透</a>官网注册账号并下载软件。打开”对局域网开放”后，在樱花穿透里新建隧道，可以直接找到(“javaw”就是MC)，点击后会自动填充，然后再选择服务器即可完成创建</p></div><img src="https://ih.onektas.top/210206/2.png" style="zoom:70%" alt="图中箭头的50673是端口号，端口号在打开“对局域网开放”后会出现在游戏左下角，每个人的都不一样"/><p><br><br></p><div class="note info simple"><p>完成创建后需要回到软件主界面手动打开隧道，打开后会在系统右下角提示”域名”和”IP”<br>加入方在多人游戏里选择”直接连接”或”添加服务器”，输入下图中划绿线或者红线的部分即可进入房间</p></div><img src="https://ih.onektas.top/210206/3.png" style="zoom:100%" alt=""/><p><br><br></p><h3 id="IPv6联机"><a href="#IPv6联机" class="headerlink" title="IPv6联机"></a>IPv6联机</h3><div class="note simple"><p>此方法不需要任何额外工具，但部分老旧设备不支持IPv6。</p><ol><li>推荐使用手机，断开Wi-Fi后打开流量和热点，电脑连入后会自动获得公网IPv6</li><li>或者自行打开光猫和路由器的IPv6功能，电脑连入后也可以得到公网IPv6</li></ol></div><div class="note info simple"><p>注意：控制面板-网络和Internet-网络和共享中心-更改适配器设置中，确保你所连入的网络已经打开IPv6功能<br><strong>另外，必须双方都拥有公网IPv6地址才可以联机！</strong></p></div><img src="https://ih.onektas.top/210206/4.png" style="zoom:50%" alt=""/><p><br><br></p><div class="note info simple"><p>最后<code>Win+R</code>打开CMD，输入<code>ipconfig</code>，即可找到你的IPv6地址(红色箭头的两个都可以)。<br>绿色箭头所指的以”fe80”开头的IPv6地址是链路本地地址，不是公网IPv6地址</p></div><img src="https://ih.onektas.top/210206/5.png" style="zoom:55%" alt=""/><p><br><br></p><div class="note info simple"><p>加入方在多人游戏里选择”直接连接”或”添加服务器”，输入格式<code>[IPv6地址]:端口号</code>(注意必须要有”[ ]”)”，端口号就是开存档方在打开”对局域网开放”时，游戏左下角出现的端口号，即可加入房间</p></div><p><br><br></p><h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><div class="note simple"><p>IP:端口，中间的”:”必须为英文状态下的冒号</p></div><div class="note simple"><p>因为每次”对局域网开放”产生的端口号都不一样，所以每次樱花穿透联机都需要新建隧道，IPv6也类似，解决方法是打内置服务端mod，或者<a href="/posts/cc8fcfce/">搭建服务器</a></p></div><div class="note simple"><p><code>Win+R</code>打开CMD，输入<code>ipconfig</code>，再在百度直接搜索”IP”，对比百度和CMD里的IPv4地址，如果相同则你拥有公网IPv4地址。一般来说都不相同，且CMD里的IPv4地址都以”192”和”172”开头</p></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Minecraft </tag>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo博客主题升级教程，Git工具的妙用方法</title>
+      <link href="posts/902450b9/"/>
+      <url>posts/902450b9/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note simple"><p>&#160;&#160;&#160;&#160;很早之前就想要自己创建一个博客，在百度里搜到的好文章也经常是个人博客的内容。后来开始自己搭建博客的时候，无意中发现了<a href="https://akilar.top/">Akilar</a>这位前辈有很多的博客搭建教程，又恰好他博客的形式是我喜欢的，于是我就开始了自己的博客搭建之旅。</p></div><br><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><div class="note default simple"><p>必备软件：Git<br>推荐软件：VSCode</p></div><br><h2 id="检查变动"><a href="#检查变动" class="headerlink" title="检查变动"></a>检查变动</h2><div class="note info simple"><p>博客根目录输入指令：<code>git status</code>，确保当前没有任何变动</p></div><img src="https://ih.onektas.top/210205/1.png" style="zoom:80%" alt=""/><p><br><br></p><h2 id="对比文件差异"><a href="#对比文件差异" class="headerlink" title="对比文件差异"></a>对比文件差异</h2><div class="note info simple"><p>新建文件夹，将原先主题和更新主题放入</p></div><img src="https://ih.onektas.top/210205/2.png" style="zoom:50%" alt=""/><p><br><br></p><div class="note info simple"><p>设置隐藏项目可查看，删除两个主题目录里的”.git”和”.github”文件夹</p></div><img src="https://ih.onektas.top/210205/3.png" style="zoom:40%" alt=""/><p><br><br></p><div class="note info simple"><p>对原先主题进行版本控制</p></div><img src="https://ih.onektas.top/210205/4.png" style="zoom:80%" alt=""/><p><br><br></p><div class="note info simple"><p>将原先主题的”.git”文件夹移动到更新主题里，再在更新主题里输入：<code>git status</code>。以下所有标红的，都是原先主题与更新主题的区别</p></div><img src="https://ih.onektas.top/210205/5.png" style="zoom:80%" alt=""/><p><br><br></p><h2 id="更改差异"><a href="#更改差异" class="headerlink" title="更改差异"></a>更改差异</h2><div class="note info simple"><p>上图中的<code>&quot;deleted&quot;</code>代表原先主题有，更新主题没有的文件，按照目录添加回去即可。主要是更改<code>&quot;modified&quot;</code>的文件，这里推荐使用VSCode，方便更改。新建文件夹，把需要更改的两个文件重命名好放入，再把此文件夹引入到VSCode中</p></div><img src="https://ih.onektas.top/210205/6.png" style="zoom:40%" alt=""/><p><br><br></p><div class="note info simple"><p>在左侧的资源目录中右键第一个文件”选择已进行比较”，再右键第二个文件，”与已选项目进行比较”。因为先前我没有修改过这个文件，所以这里的变动是主题的更新内容，不需要任何更改。注意，文件比较的顺序是红色箭头指的地方，绿色箭头代表的是被比较文件的文件名</p></div><img src="https://ih.onektas.top/210205/7.png" style="zoom:40%" alt=""/><p><br><br></p><div class="note info simple"><p>文件更改好之后，再在更新主题里执行：<code>git status</code>。可以看到，所有的<code>&quot;deleted&quot;</code>已经消失了，证明我把原先主题里自行添加的东西都搬运到更新主题里了(之前<code>&quot;Untracked files&quot;</code>里的几个文件是未被追踪的，是主题里自带的图片，在原先主题里我是删除掉的，所以这里显示未被追踪。)剩下仅有的两个<code>&quot;modfied&quot;</code>就是是这次主题更新发生改动的文件。</p></div><img src="https://ih.onektas.top/210205/8.png" style="zoom:80%" alt=""/><p><br><br></p><h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><div class="note info simple"><p>为什么要在原先主题里进行版本控制，然后把文件移入更新主题，而不是反过来？</p></div><div class="note success simple"><p>其实反过来也行，而且好像更方便了，哈哈哈哈哈哈。但是我的直觉告诉我得按照这样的顺序，我也自己反过来试过，总感觉哪里不对</p></div><br><div class="note info simple"><p>另外建议按照<a href="https://butterfly.js.org/posts/21cfbf15/#%E5%8D%87%E7%B4%9A%E5%BB%BA%E8%AD%B0">这里</a>的升级建议把主题配置文件独立出来，可以更方便的升级主题</p></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第一篇文章</title>
+      <link href="posts/4a17b156/"/>
+      <url>posts/4a17b156/</url>
+      
+        <content type="html"><![CDATA[<h2 id="自言自语"><a href="#自言自语" class="headerlink" title="自言自语"></a>自言自语</h2><p>寒假的第17天，2月的第一天，感觉今天还算是有纪念意义，赶紧把博客重新开始搞。</p><p>主题依旧选用了Butterfly，挑了三天，果然还是这个最好了。</p><p>早上9:30开始准备搞博客，这已经是不知道第几次从零开始了，开头部分很是熟练，也趁此机会实验各种东西以免以后出bug。</p><p>很快一个上午没了，紧接着整个下午都是在循环往复的尝试，直到晚上才开始配置主题。整体上是有史以来最成功的一次。赶紧折腾完好好写文章了！</p><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの时间轴 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 纪念 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

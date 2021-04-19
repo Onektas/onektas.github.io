@@ -1,0 +1,439 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minecraft服务器搭建教程（Linux篇） | Onektasの博客</title><meta name="keywords" content="Minecraft,Linux"><meta name="author" content="Onektas"><meta name="copyright" content="Onektas"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Java版我的世界服务器搭建教程，Linux上搭建也不难~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Minecraft服务器搭建教程（Linux篇）">
+<meta property="og:url" content="https://onektas.top/posts/6b70759/">
+<meta property="og:site_name" content="Onektasの博客">
+<meta property="og:description" content="Java版我的世界服务器搭建教程，Linux上搭建也不难~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ih.onektas.top/cover/mc2.jpg">
+<meta property="article:published_time" content="2021-02-13T06:20:00.000Z">
+<meta property="article:modified_time" content="2021-04-18T04:00:00.000Z">
+<meta property="article:author" content="Onektas">
+<meta property="article:tag" content="Minecraft">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ih.onektas.top/cover/mc2.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://onektas.top/posts/6b70759/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-18 12:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiperstyle.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: #00000000"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Onektasの博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Minecraft服务器搭建教程（Linux篇）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-13T06:20:00.000Z" title="发表于 2021-02-13 14:20:00">2021-02-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-18T04:00:00.000Z" title="更新于 2021-04-18 12:00:00">2021-04-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Onektas%E3%81%AE%E5%90%84%E7%A7%8D%E6%95%99%E7%A8%8B/">Onektasの各种教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note warning simple"><p>注意：本教程内容仅适用于Java版我的世界(Minecraft:Java Edition)。经济允许的情况下建议支持正版，以获得最佳游戏体验</p>
+</div>
+
+<div class="note default simple"><p>推荐工具：Xshell、Xftp<br>推荐系统：CentOS 8.x</p>
+</div>
+
+<blockquote>
+<p>本教程使用的是官方服务端+Forge/Fabric</p>
+</blockquote>
+<br>
+
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><div class="note info simple"><p>以阿里云的轻量应用服务器为例，使用Xshell和Xftp或同类工具连接前，需要在阿里云里设置<code>远程连接密码</code></p>
+</div>
+
+<img src="https://ih.onektas.top/210213/1.png" style="zoom:40%" alt=""/>
+
+<p><br><br></p>
+<div class="note info simple"><p>还需要进入服务器的防火墙，把25565端口放行。不同云服务器的操作不同，可以百度搜索相应教程，也可以致电服务器的客服</p>
+</div>
+
+<img src="https://ih.onektas.top/210213/2.png" style="zoom:40%" alt=""/>
+
+<br>
+
+<h2 id="连接Linux"><a href="#连接Linux" class="headerlink" title="连接Linux"></a>连接Linux</h2><div class="note info simple"><p>打开Xshell，左上角选择”文件”——“新建”，在主机处输入云服务器的外网IP</p>
+</div>
+
+<img src="https://ih.onektas.top/210213/3.png" style="zoom:60%" alt=""/>
+
+<p><br><br></p>
+<div class="note info simple"><p>再点击”用户身份验证”，方法选择”Password”，用户名输入<code>root</code>，密码是之前设置的<code>远程连接密码</code>。输入完后点击确定即可成功连接，Xftp的连入方式同理</p>
+</div>
+
+<img src="https://ih.onektas.top/210213/4.png" style="zoom:60%" alt=""/>
+
+<p><br><br></p>
+<h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><div class="note warning simple"><p>可以看到不同的Linux系统的操作命令不同，甚至不同版本也会有区别，Linux用户请尽量安装本教程使用的CentOS8系统</p>
+</div>
+
+<div class="note simple"><p>如果Linux系统刚刚装好</p>
+<ol>
+<li>yum update &nbsp;&nbsp; # RHEL、CentOS使用这个 </li>
+<li>apt-get update &nbsp;&nbsp; # Debian、Ubuntu使用这个</li>
+</ol>
+<p>安装Java </p>
+<ol>
+<li>yum install java -y &nbsp;&nbsp; # RHEL、CentOS使用这个</li>
+<li>apt-get install java -y &nbsp;&nbsp; # Debian、Ubuntu使用这个</li>
+</ol>
+<p>安装screen，可以将MC服务器挂载至后台</p>
+<ol>
+<li>yum install screen -y &nbsp;&nbsp; # RHEL、CentOS使用这个 </li>
+<li>apt-get install screen -y &nbsp;&nbsp; # Debian、Ubuntu使用这个</li>
+</ol>
+</div>
+
+<br>
+
+<h2 id="安装服务器"><a href="#安装服务器" class="headerlink" title="安装服务器"></a>安装服务器</h2><div class="note warning simple"><p>因为MC服务器的特性，可以直接把在<a href="/posts/cc8fcfce/">Windows安装</a>好的服务器通过Xftp工具复制过来用，也可以按照下面操作在Linux上安装</p>
+</div>
+
+<br>
+
+<div class="note info simple"><p>连入Xshell和Xftp，在ftp里新建文件夹作为MC服务器目录，例：</p>
+</div>
+
+<img src="https://ih.onektas.top/210213/5.png" style="zoom:90%" alt=""/>
+
+<p><br><br></p>
+<div class="note info simple"><p>在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://mcversions.net/">这里</a>下载需要的服务器版本，下载时选择Server Jar，之后通过Xftp上传到服务器</p>
+</div>
+
+<img src="https://ih.onektas.top/210210/1.png" style="zoom:80%" alt=""/>
+
+<blockquote>
+<p>也可以使用<code>wget</code>命令在Linux上直接下载</p>
+</blockquote>
+<br>
+
+<div class="note danger simple"><p>官方给出的服务器打开命令为<code>java -Xmx1024M -Xms1024M -jar minecraft_server.1.16.5.jar nogui</code><br>“java”代表要打开java文件；”-Xmx””-Xms”分别为分配最大内存和分配初始内存；”-jar”后面接文件目录；”nogui”代表不打开图形；<br>例如我的MC服务器文件在”/root/MC_Server1”里，服务端名称为”server.jar”(注意后缀)，Linux默认操作目录在”/root”<br>所以我先<code>cd MC_Server1</code>进入服务器目录<br>再输入<code>java -Xms1126M -Xmx1126M -jar server.jar nogui</code></p>
+</div>
+
+<br>
+
+<div class="note info simple"><p>Xshell输入命令打开MC服务器，第一次打开必然报错<br>再用Xftp”使用记事本编辑”<code>eula.txt</code>，把文件里的<code>&quot;false&quot;</code>改成<code>&quot;true&quot;</code></p>
+</div>
+
+<blockquote>
+<p>建议游玩前配置好<code>server.properties</code>文件，可以在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://minecraft-zh.gamepedia.com/Server.properties">这里</a>找到每一项的解释。如果有非正版用户需要加入服务器，<code>online-mode</code>这一项必须改成<code>false</code></p>
+</blockquote>
+<br>
+
+<div class="note info simple"><p>Xshell再次输入命令，即可打开服务器</p>
+</div>
+
+<br>
+
+<h2 id="安装Forge-Fabric"><a href="#安装Forge-Fabric" class="headerlink" title="安装Forge/Fabric"></a>安装Forge/Fabric</h2><p>&#160;&#160;&#160;&#160;*纯净服可跳过这一步</p>
+<div class="note info simple"><p>安装Forge/Fabric会生成新的服务端，例Forge的为：<code>forge-server.jar</code>，之后打开新服务端即可使用Forge/Fabric</p>
+</div>
+
+<div class="tabs" id=""><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#-1">Forge</button></li><li class="tab"><button type="button" data-href="#-2">Fabric</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="-1"><p>Forge<a target="_blank" rel="noopener external nofollow noreferrer" href="https://files.minecraftforge.net/">官网</a>，先在左侧选择需要的版本<br><img src="https://ih.onektas.top/210210/5.png" style="zoom:80%" alt=""/><br>之后通过Xftp将文件上传到Linux，也可以使用<code>wget</code>命令直接在Linux下载<br>默认安装命令为<code>java -jar forge-1.16.4-installer.jar nogui --installServer</code></p>
+<blockquote>
+<p>Forge安装成功率较低，建议耐心尝试</p>
+</blockquote><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="-2"><p>Fabric<a target="_blank" rel="noopener external nofollow noreferrer" href="https://fabricmc.net/">官网</a>，不需要考虑游戏版本，直接下载<br><img src="https://ih.onektas.top/210210/4.png" style="zoom:80%" alt=""/><br><img src="https://ih.onektas.top/210210/6.png" style="zoom:80%" alt=""/><br>之后通过Xftp将文件上传到Linux，也可以使用<code>wget</code>命令直接在Linux下载<br>默认安装命令为<code>java -jar fabric.jar nogui</code>，再按提示修改命令安装</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+<h2 id="加入服务器"><a href="#加入服务器" class="headerlink" title="加入服务器"></a>加入服务器</h2><div class="note info simple"><p>因为云服务一般都提供公网IPv4地址，加入方直接在多人游戏——直接连接/添加服务器里输入服务器IP地址即可加入</p>
+</div>
+
+<br>
+
+<h2 id="将服务器挂载至后台"><a href="#将服务器挂载至后台" class="headerlink" title="将服务器挂载至后台"></a>将服务器挂载至后台</h2><div class="note info simple"><p>如果没有安装<code>screen</code>软件，在退出Xshell后，服务器会自动关闭</p>
+</div>
+
+<br>
+
+<div class="note simple"><p>安装好screen软件：</p>
+<ol>
+<li><p>Xshell输入<code>screen -S name</code>，例：<code>screen -S screen1</code>，创建一个新窗口(注意<code>-S</code>的S是大写)</p>
+</li>
+<li><p>然后再此窗口内输入，例：<code>java -Xms1024M -Xmx1024M -jar /root/MC_Server1/server.jar -nogui</code>打开服务器，再<code>Ctrl+A+D</code>，即可返回主窗口</p>
+</li>
+<li><p><code>screen -ls</code>查看已创建的窗口，之后<code>screen -r ID</code>进入开头为”ID”的窗口，<code>screen -XS &quot;ID&quot; quit</code>关闭开头为”ID”的窗口</p>
+</li>
+</ol>
+</div>
+
+<br>
+
+<h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><div class="note info simple"><p>Xshell内<code>Ctrl+C</code>，可以关闭任何正在运行的程序，MC服务器也可以使用此快捷键退出</p>
+</div>
+
+<p><br><br></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">Onektas</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://onektas.top/posts/6b70759/">https://onektas.top/posts/6b70759/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://onektas.top" target="_blank">Onektasの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Minecraft/">Minecraft</a><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="https://ih.onektas.top/cover/mc2.jpg" data-sites="wechat,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/cc8fcfce/"><img class="prev-cover" src="https://ih.onektas.top/cover/mc2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Minecraft服务器搭建教程（Windows篇）</div></div></a></div><div class="next-post pull-right"><a href="/posts/96525a9d/"><img class="next-cover" src="https://ih.onektas.top/cover/diary.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">终于明白了，我为什么老是“强迫症”</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/20fb2456/" title="如何优雅的在Linux搭建Minecraft服务器（范例）"><img class="cover" src="https://ih.onektas.top/cover/mc2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-11</div><div class="title">如何优雅的在Linux搭建Minecraft服务器（范例）</div></div></a></div><div><a href="/posts/3b961951/" title="Minecraft各种联机方式"><img class="cover" src="https://ih.onektas.top/cover/mc1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-06</div><div class="title">Minecraft各种联机方式</div></div></a></div><div><a href="/posts/cc8fcfce/" title="Minecraft服务器搭建教程（Windows篇）"><img class="cover" src="https://ih.onektas.top/cover/mc2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-10</div><div class="title">Minecraft服务器搭建教程（Windows篇）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Onektas</div><div class="author-info__description">努力创作，梦想是大家能欣赏我都作品~</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Onektas"><i class="far fa-paper-plane"></i><span>GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/img/wechat.jpg" target="_blank" title="微信"><i class="fab fa-weixin"></i></a><a class="social-icon" href="/img/alipay.jpg" target="_blank" title="支付宝"><i class="fab fa-alipay"></i></a><a class="social-icon" href="https://github.com/Onektas" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5Linux"><span class="toc-number">3.</span> <span class="toc-text">连接Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">安装软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">安装服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Forge-Fabric"><span class="toc-number">6.</span> <span class="toc-text">安装Forge&#x2F;Fabric</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">加入服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8C%82%E8%BD%BD%E8%87%B3%E5%90%8E%E5%8F%B0"><span class="toc-number">8.</span> <span class="toc-text">将服务器挂载至后台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E8%B4%B4%E5%A3%AB"><span class="toc-number">9.</span> <span class="toc-text">小贴士</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: #00000000"><div id="footer-wrap"><div class="copyright">&copy;2021 By Onektas</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href="https://beian.miit.gov.cn/#/Integrated/index"><img class="icp-icon" src="/img/icp.png"><span>浙ICP备2021010654号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-7gh6rla355a5a0c0',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-7gh6rla355a5a0c0',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && location.pathname =='/'){
+    
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="https://ih.onektas.top/cover/anime.jpg" alt="https://ih.onektas.top/cover/anime.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2021-03-23</span><a class="blog-slider__title" href="posts/676d2855/">那些让我印象深刻的番剧（持续更新）</a><div class="blog-slider__text">发觉可以记录番剧观看史的时候已经入宅快2年了，番剧也看了上百部，想了想，索性取其精华只记录印象深刻的</div><a class="blog-slider__button" href="posts/676d2855/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="https://ih.onektas.top/cover/1.jpg" alt="https://ih.onektas.top/cover/1.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2021-03-13</span><a class="blog-slider__title" href="posts/32748ba0/">超详细的健身安排表</a><div class="blog-slider__text">健身是一件快乐的事情~</div><a class="blog-slider__button" href="posts/32748ba0/">详情</a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载swiper')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script>
+<script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.js"></script>
+<script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper@0.18/swiper/swiperindex.js"></script>
+<style></style><!-- hexo injector body_end end --></body></html>

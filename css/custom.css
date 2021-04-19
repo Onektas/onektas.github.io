@@ -1,0 +1,68 @@
+/* 滚动条 */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+ ::-webkit-scrollbar-track {
+    background-color: rgba(73, 177, 245, 0.2);
+    border-radius: 1em;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background-color: #49b1f5;
+    background-image: -webkit-linear-gradient( 45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+    border-radius: 1em;
+}
+
+ ::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+ ::-moz-selection {
+    color: #fff;
+    background-color: #49b1f5;
+}
+
+
+/* 鼠标样式 */
+
+body {
+    cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur), default;
+}
+
+a,
+img {
+    cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur), default;
+}
+
+
+/* 弹窗description */
+
+#recent-posts>.recent-post-item>.recent-post-info:hover .content {
+    position: fixed;
+    width: inherit;
+    max-width: 780px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 3%;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 100;
+    content: attr(data-title);
+    font-size: 18px;
+    color: #fff;
+    padding: 10px;
+    background-color: rgba(73, 177, 245, 0.8);
+    display: block;
+    margin-bottom: .7rem;
+}
+
+
+/* 覆盖双栏 */
+
+#recent-posts>.recent-post-item .post_cover {
+    height: 230px !important;
+}
