@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Win10局域网满带宽互传文件教程(可外网互传)，附iOS-Win传输方法</title>
+      <link href="posts/9a12578b/"/>
+      <url>posts/9a12578b/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note default simple"><p>本教程使用的是Win10自带的SMB功能，SMB（ServerMessageBlock）协议是一种局域网文件共享传输协议，最初是IBM的贝瑞·费根鲍姆（Barry Feigenbaum）研制出用于DOS操作系统中的本地文件接口，后来微软对这个发展进行了重大更改。巧的是iOS13开始，iPhone也支持SMB传输文件。</p></div><br><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><div class="note default simple"><p>推荐系统: Windows10<br>必备环境: 有线网络/无线网络</p></div><br><h2 id="开始整活"><a href="#开始整活" class="headerlink" title="开始整活"></a>开始整活</h2><p>首先讲一下局域网内的传文件方式，外网传输与局域网传输本质上无区别，继续往下看</p><h3 id="一"><a href="#一" class="headerlink" title="一"></a>一</h3><div class="note info simple"><p><strong>共享方</strong>选择需要分享的磁盘/文件夹，<code>右键--属性--共享--高级共享</code>，勾选<code>共享此文件夹</code></p></div><img src="https://ih.onektas.top/210501/1.png" style="zoom:70%" alt=""/><p><br><br></p><h3 id="二"><a href="#二" class="headerlink" title="二"></a>二</h3><div class="note info simple"><p><strong>共享方</strong>打开<code>控制面板--网络和 Internet--网络和共享中心--高级共享设置</code>，打开“专用”和“来宾或公用”里的<code>启用文件和打印机共享</code>，其余按需设置或保持默认</p></div><img src="https://ih.onektas.top/210501/2.png" style="zoom:70%" alt=""/><p><br><br></p><h3 id="Everyone账户"><a href="#Everyone账户" class="headerlink" title="Everyone账户"></a>Everyone账户</h3><p>如果<strong>访问方</strong>和<strong>共享方</strong>登入同样的微软账号，可以直接阅读第三步<br>如果你使用的是本地账户或在两台电脑中登入了不同账号，可以参考如下方法</p><div class="note info simple"><p><strong>共享方</strong>选择需要分享的磁盘/文件夹，<code>右键--属性--安全--编辑--添加</code>输入Everyone并确定，再给Everyone赋予你想要的权限(红箭头)，这个权限是第五步权限中的前提</p></div><img src="https://ih.onektas.top/210501/7.png" style="zoom:70%" alt=""/><br><img src="https://ih.onektas.top/210501/7-2.png" style="zoom:70%" alt="如果分享的是文件夹，需要多设置这一步"/><p><br><br></p><div class="note info simple"><p><strong>共享方</strong>打开<code>控制面板--网络和 Internet--网络和共享中心--高级共享设置</code>，在“所有网络”里选择<code>无密码保护的共享</code></p></div><img src="https://ih.onektas.top/210501/8.png" style="zoom:70%" alt=""/><p><br><br></p><h3 id="三"><a href="#三" class="headerlink" title="三"></a>三</h3><div class="note info simple"><p><strong>共享方</strong><code>Win+R</code>输入CMD并打开，再在CMD中输入<code>ipconfig</code>，正常来说只有一项有输出，其余的都是“媒体已断开链接”。找到你电脑的IPv4地址并记下</p></div><img src="https://ih.onektas.top/210501/3.png" style="zoom:70%" alt=""/><p><br><br></p><h3 id="四"><a href="#四" class="headerlink" title="四"></a>四</h3><div class="note info simple"><p><strong>访问方</strong><code>Win+R</code>输入<code>\\172.20.10.5</code>或者在“我的电脑”中输入。按下回车后你就你可以进入自己刚刚分享的磁盘或文件夹了</p></div><img src="https://ih.onektas.top/210501/4.png" style="zoom:70%" alt=""/><blockquote><p>注意是”\\“不是”//“</p></blockquote><p><br><br></p><div class="note info simple"><p>你还可以<code>右键我的电脑--映射网络驱动器</code>，输入<code>\\172.20.10.5</code>，“浏览”并选择共享的磁盘/文件夹，你会发现“我的电脑”里会多一个磁盘/文件夹，只要<strong>共享方</strong>的电脑在线且IP不变，你就可以随时使用这个磁盘/文件夹</p></div><img src="https://ih.onektas.top/210501/6.png" style="zoom:70%" alt=""/><p><br><br></p><h3 id="五"><a href="#五" class="headerlink" title="五"></a>五</h3><div class="note info simple"><p>成功后你会发现，访问方只能读取，无法修改和写入文件，这是因为默认只有读取权限，需要进行设置</p></div><img src="https://ih.onektas.top/210501/5.png" style="zoom:70%" alt=""/><p><br><br></p><h2 id="实际使用"><a href="#实际使用" class="headerlink" title="实际使用"></a>实际使用</h2><div class="note simple"><p>实际使用中最影响体验的就是速率了，如果要达到千兆速率，必须达成以下所有条件:</p><ol><li>使用有线网络（千兆无线速率的瓶颈一般在路由器端，市面上几百块的所谓千兆路由器根本达不到这个速度）</li><li>双方设备均有千兆级有线网卡</li><li>网线为超五类以上</li><li>路由器和双方设备均有千兆网口</li><li>硬盘的读写速度大于125MB/s</li></ol><p>以上条件，近三年内的正常产品都可以轻松达到</p></div><img src="https://ih.onektas.top/210501/9.png" style="zoom:50%" alt="参考图片，AX200和AX201网卡，千兆路由、网线、网口"/><blockquote><p>上图环境，在传输10GB、zip格式文件时显示速率为”111MB/s”，用时”1分45秒”</p></blockquote><br><h2 id="iOS使用"><a href="#iOS使用" class="headerlink" title="iOS使用"></a>iOS使用</h2><p>iOS的教程很多，我还是最习惯自己这边的操作<br>按照上述教程操作<strong>共享方</strong>(Everyone账户这步也要)，<strong>访问方</strong>即是我们的iPhone</p><div class="note info simple"><p><code>打开文件App--右上角三个点--连接服务器--输入共享方IP--选择客人--下一步</code>，完成</p></div><img src="https://ih.onektas.top/210501/10.png" style="zoom:25%" alt=""/><p><br><br></p><h2 id="外网使用"><a href="#外网使用" class="headerlink" title="外网使用"></a>外网使用</h2><p>参考<a href="https://onektas.top/posts/3b961951/#%E8%BF%9C%E7%A8%8B%E8%81%94%E6%9C%BA">这个</a>，无非就是远程局域网、内网穿透、公网IP。我最推荐的是IPv6方案，IPv6可以参考<a href="https://onektas.top/posts/3b961951/#IPv6%E8%81%94%E6%9C%BA">这个</a></p><div class="note info simple"><p>确保<strong>共享方</strong>和<strong>访问方</strong>都有公网IPv6，依旧参照本教程设置，区别是第四步中输入的是<code>\\IPv4</code>，而我们要改成<code>\\转义IPv6</code></p></div><div class="note info simple"><p>示例: 假设公网IPv6地址为{abcd:abcd:1234:1234:zxcv:zxcv:qwer:qwer}，转义后为{abcd-abcd-1234-1234-zxcv-zxcv-qwer-qwer.ipv6-literal.net}，就是把冒号改成短横，并加上<code>.ipv6-literal.net</code></p></div><br><h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><div class="note info simple"><p>SMB共享推荐个人使用，Everyone账号那块我选择了无密码共享，这样可能不安全，本教程仅作为SMB功能使用的一些参考，自己使用时要谨慎设置和多多研究</p></div><div class="note info simple"><p>iOS实际可利用数据线和win10传输任意文件，敬请期待我的下一篇文章</p></div><img src="https://ih.onektas.top/210501/0.png" style="zoom:25%" alt=""/><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何优雅的在Linux搭建Minecraft服务器（范例）</title>
       <link href="posts/20fb2456/"/>
       <url>posts/20fb2456/</url>
