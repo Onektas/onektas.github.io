@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>iPhone能用数据线和电脑传文件吗？能，而且很快</title>
+      <link href="posts/f1181084/"/>
+      <url>posts/f1181084/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note simple"><p>iPhone传文件到PC，想想就头疼。使用QQ，速度不保证，且文件不能大于2G。网上找传输教程，铺天盖地的SMB方案(上篇文章提到过，但SMB在iOS的体验并不好)，要么各种局域网传输工具，网络环境不好还不如用QQ。数据线传输方案也有，但只能利用iTunes传输照片视频。这篇文章将告诉你如何使用数据线传输任意文件(方法非常简单，只是大家没发现而已)</p></div><br><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><div class="note default simple"><p>设备：电脑，iPhone<br>工具：iPhone数据线<br>软件：Xender(仅需iOS端安装)</p></div><img src="https://ih.onektas.top/210510/0.png" style="zoom:25%" alt=""/><p><br><br></p><h2 id="开始整活"><a href="#开始整活" class="headerlink" title="开始整活"></a>开始整活</h2><div class="note info simple"><p>iPhone关闭”Wi-Fi”，打开”蜂窝网络”和”个人热点”，断开电脑的网络，用数据线将iPhone和PC连接起来即可自动联网</p></div><img src="https://ih.onektas.top/210510/2.png" style="zoom:60%" alt="这样连接的图标和有线网络是一样的"/><blockquote><p>是的，此方案就是利用数据线来高速共享网络，再使用局域网文件传输工具来高速传文件</p></blockquote><br><div class="note info simple"><p>iPhone打开Xender，按照提示连接PC</p></div><img src="https://ih.onektas.top/210510/2-2.png" style="zoom:21%" alt=""/><p><br><br></p><div class="note info simple"><p>连上后就可以开始传输任意文件了，此方法并不会消耗流量，可以放心使用</p></div><img src="https://ih.onektas.top/210510/3.png" style="zoom:30%" alt=""/><p><br><br></p><h2 id="速度测试"><a href="#速度测试" class="headerlink" title="速度测试"></a>速度测试</h2><div class="note info simple"><p>按住<code>shift</code>并右键，打开PowerShell。使用<code>fsutil file createnew</code>命令创建一个指定大小的文件来进行测速</p></div><img src="https://ih.onektas.top/210510/1.png" style="zoom:45%" alt=""/><p><br><br></p><img src="https://ih.onektas.top/210510/4.png" style="zoom:30%" alt="换算速率约为37.5MB/s"/><p><br><br></p><div class="note info simple"><p>使用USB3.0及以上速率的接口，不论是原装Lightning to USB数据线还是Lightning to C，都可以达到这个速率</p></div><img src="https://ih.onektas.top/210510/1.gif" style="zoom:30%" alt="0.1GiB文件传输测试"/><p><br><br></p><img src="https://ih.onektas.top/210510/2.gif" style="zoom:30%" alt="1GiB文件传输测试"/><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Win10局域网满带宽互传文件教程(可外网互传)，附iOS-Win传输方法</title>
       <link href="posts/9a12578b/"/>
       <url>posts/9a12578b/</url>
