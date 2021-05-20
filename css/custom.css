@@ -70,3 +70,40 @@ img {
 #recent-posts>.recent-post-item>.recent-post-info>.article-title {
     font-size: 1.28em !important;
 }
+
+
+/* 彩色图标 */
+
+@font-face {
+    font-family: "iconfont";
+    /* Project id 2561638 */
+    src: url('//at.alicdn.com/t/font_2561638_15965ykewhv.woff2?t=1621522152192') format('woff2'), url('//at.alicdn.com/t/font_2561638_15965ykewhv.woff?t=1621522152192') format('woff'), url('//at.alicdn.com/t/font_2561638_15965ykewhv.ttf?t=1621522152192') format('truetype');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 22px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-weixin:before {
+    content: "\e6a3";
+    color: #24DB5A;
+}
+
+.icon-zhifubao:before {
+    content: "\e607";
+    color: #10A5F2;
+}
+
+.icon-29:before {
+    content: "\e619";
+    color: #49C0FB;
+}
+
+.icon-bilibilidonghua:before {
+    content: "\e608";
+    color: #F08198;
+}
