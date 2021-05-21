@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>如何用手机搭建一个电脑端的Minecraft服务器</title>
+      <link href="posts/a141da2/"/>
+      <url>posts/a141da2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note simple"><p>Android的app运行在Java虚拟机上、Java具有跨平台的特性。5月13号，查询资料至半夜2:30；5月14号,实验一天，终于成功在我的安卓备用机上运行Minecraft服务器。</p></div><br><h2 id="历程"><a href="#历程" class="headerlink" title="历程"></a>历程</h2><div class="note simple"><p>我希望能在安卓上直接跑Java，先使用Android SDK编译MC server的jar包，成功后打包再成app使用。编译需要严格的对应Java版本，显然MC服务器不会留下Java版本信息，所以梦想是美好的，结果是失败的(头铁一个个试过去也许能行)。于是遇上了Aid Learning这款国产软件，基于Debian10。</p></div><br><h2 id="配置参考"><a href="#配置参考" class="headerlink" title="配置参考"></a>配置参考</h2><div class="note default simple"><p>运行内存：3G<br>存储空间：64G<br>处理芯片：骁龙439<br>安卓版本：Android8.1</p></div><br><h2 id="开始整活"><a href="#开始整活" class="headerlink" title="开始整活"></a>开始整活</h2><div class="note info simple"><p>各大应用商店都有Aid Learning，安装好打开，软件会自动下载数据包，无需任何额外操作</p></div><img src="https://ih.onektas.top/210521/1.jpg" style="zoom:25%" alt="网络好仅需几分钟"/><p><br><br></p><div class="note info simple"><p>Aid Learning的SSH远程登入有Bug，不过官方自带连接工具。8000端口连接图形界面，8080端口连接文件界面</p></div><img src="https://ih.onektas.top/210521/1-2.jpg" style="zoom:25%" alt=""/><p><br><br></p><img src="https://ih.onektas.top/210521/2.png" style="zoom:40%" alt=""/><p><br><br></p><img src="https://ih.onektas.top/210521/3.png" style="zoom:40%" alt=""/><br><blockquote><p>操作流畅度超过Win10</p></blockquote><br><div class="note info simple"><p>MC服务器不一定能使用Java11运行，然而出于安全考虑，Debian10取消了Java8，更难受的是，Aid手动安装Java8也有Bug，尝试后发现直接加一个Debian9的源可以曲线救国</p></div><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt search openjdk</span><br><span class="line">apt install openjdk-8-jdk</span><br></pre></td></tr></table></figure><img src="https://ih.onektas.top/210521/4.png" style="zoom:40%" alt=""/><p><br><br></p><img src="https://ih.onektas.top/210521/5.png" style="zoom:40%" alt=""/><p><br><br></p><img src="https://ih.onektas.top/210521/6.png" style="zoom:40%" alt=""/><br><blockquote><p>成功安装Java8，跑MC服务器已经是手到擒来了</p></blockquote><br><h2 id="游戏测试"><a href="#游戏测试" class="headerlink" title="游戏测试"></a>游戏测试</h2><div class="note info simple"><p>搭建服务器的操作和Linux一模一样。我自己的服务器是备份在Github上的，Aid自带git，很方便的下载了自己的服务器。</p></div><img src="https://ih.onektas.top/210521/7.png" style="zoom:60%" alt=""/><p><br><br></p><div class="note info simple"><p>进游戏试试，轻量应用服务器的性能很吃紧，这骁龙439看起来挺能打的</p></div><img src="https://ih.onektas.top/210521/8.png" style="zoom:60%" alt=""/><p><br><br></p><div class="note info simple"><p>简单测试后，没有遇到性能瓶颈。图片拍摄于5.14日，正式开服一天，自己还没玩过，我的朋友都是老肝帝系列…</p></div><img src="https://ih.onektas.top/210521/9.png" style="zoom:60%" alt="漂亮的家、农场和牧场、地下的工业基地，该有的都有了"/><br><img src="https://ih.onektas.top/210521/10.png" style="zoom:30%" alt="5月21日拍摄，变化很大"/><p><br><br></p><h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><div class="note info simple"><p>Aid的运行效率很高，跑Java的性能也很好。不过宿主环境是Android，处理器为Arm架构，许多Linux命令和软件无法使用，若真要用安卓手机搭建服务器维护成本不会低</p></div><br><div class="note info simple"><p>文章标题并没有特指安卓手机，因为iOS也有虚拟机软件，理论也可以跑Java</p></div><p><br><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Onektasの各种笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Minecraft </tag>
+            
+            <tag> Android </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>iPhone能用数据线和电脑传文件吗？能，而且很快</title>
       <link href="posts/f1181084/"/>
       <url>posts/f1181084/</url>
